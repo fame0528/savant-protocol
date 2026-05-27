@@ -1,0 +1,17 @@
+# Agent runtime state — not source code
+dev/session-summaries/
+dev/findings/
+dev/plans/
+dev/baselines/
+
+# Keep LEARNINGS.md tracked — cross-session knowledge
+!dev/LEARNINGS.md
+
+# Firebase
+firebase-debug.log
+.firebaserc
+firebase.json
+
+# OS
+.DS_Store
+Thumbs.db

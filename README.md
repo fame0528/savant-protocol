@@ -1,0 +1,263 @@
+<!-- markdownlint-disable MD033 -->
+<div align="center">
+
+<img src="overview.jpg" alt="ECHO Protocol Overview" width="850" />
+
+# ECHO PROTOCOL v3.0.0
+
+**Universal Agent Bootstrap. Language-Agnostic. Zero-Cost.**
+
+A structured quality gate framework for AI agent sessions. Drop into any project
+to enforce test-driven development, iterative refinement, honest verification,
+and mandatory coding standards — regardless of language.
+
+**8 Immutable Laws** governing all agent behavior. **Perfection Loop FSM** with
+Levenshtein-constrained change control. **Circuit breaker rules** preventing
+oscillation and runaway loops. Enterprise-grade agent discipline out of the box.
+
+[![License](https://img.shields.io/badge/License-MIT-%23000000?style=flat-square&logo=github&logoColor=%2300fbff)](LICENSE)
+[![Rust](https://img.shields.io/badge/Rust-Supported-%23000000?style=flat-square&logo=rust&logoColor=%2300fbff)](coding-standards/rust.md)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Supported-%23000000?style=flat-square&logo=typescript&logoColor=%2300fbff)](coding-standards/typescript.md)
+[![Python](https://img.shields.io/badge/Python-Supported-%23000000?style=flat-square&logo=python&logoColor=%2300fbff)](coding-standards/python.md)
+
+</div>
+
+---
+
+## Overview
+
+The ECHO Protocol is a universal agent bootstrap system that enforces structured
+engineering discipline on any AI agent, in any language, on any project:
+
+- **8 Immutable Laws** — Non-negotiable rules covering TDD, iterative refinement, double audit, documentation, coding standards, validation, production-like testing, and structured fuzz/mutation testing
+- **Perfection Loop FSM** — 5-state finite state machine (RED → GREEN → AUDIT → SELF-CORRECT → COMPLETE) with mandatory transitions and convergence detection
+- **Levenshtein Change Control** — 10% character-change cap per pass prevents oscillation and ensures stable convergence
+- **Circuit Breaker Rules** — 5 hard rules preventing runaway loops: max changes, random sample verification, convergence detection, oscillation detection, and hard iteration stop
+- **Double Audit** — Every change verified by two independent methods (static analysis + runtime tests). Self-reporting is prohibited
+- **Language-Agnostic Design** — Core protocol is language-neutral. Language-specific rules live in `coding-standards/{language}.md`. Configuration lives in `protocol.config.yaml`
+- **FID Lifecycle** — Findings documents track bugs, architectural issues, and improvements through a structured lifecycle: Created → Analyzed → Fixed → Verified → Closed
+- **Session Management** — Structured session lifecycle with start/during/end phases, automatic summaries, and cross-session learning via `LEARNINGS.md`
+- **Honest Assessment** — All claims must be verifiable through tool output. No self-reporting. No assumptions. Proof or it didn't happen
+- **Template Library** — Pre-built templates for FIDs and session summaries ensure consistent documentation across all agent sessions
+
+---
+
+## The 8 Immutable Laws
+
+| # | Law | Purpose |
+| :-: | :--- | :--- |
+| 1 | **TDD Fix/Verify** | All implementations follow test-driven development. Tests are executable documentation |
+| 2 | **Perfection Loop via Levenshtein** | Iterative refinement with 10% change cap per pass and convergence detection |
+| 3 | **Double Audit with Honest Assessment** | Two verification methods required. Self-reporting is prohibited |
+| 4 | **Documentation Required** | No feature exists without module-level docs, API contracts, error conditions, and security implications |
+| 5 | **Coding Standards** | Language-specific naming and style from `coding-standards/{language}.md`. Max 300 lines per file |
+| 6 | **Validate Before Finalizing** | Full validation (build + test + type-check + lint) before any commit or PR |
+| 7 | **Test in Production-Like** | Test environments must mirror production: same schemas, security, topology, and runtime versions |
+| 8 | **No Fuzz/Mutation Without Harness** | Fuzz and mutation testing require defined harnesses, coverage targets, and auto-triage |
+
+---
+
+## Perfection Loop FSM
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│                    PERFECTION LOOP                           │
+│                    Finite State Machine                      │
+│                                                              │
+│  ┌─────────┐    ┌──────────┐    ┌─────────┐    ┌─────────┐ │
+│  │   RED   │───>│  GREEN   │───>│  AUDIT  │───>│  SELF   │ │
+│  │  PHASE  │    │  PHASE   │    │  PHASE  │    │ CORRECT │ │
+│  └─────────┘    └──────────┘    └─────────┘    └────┬────┘ │
+│       ^                                              │      │
+│       │                │                                     │
+│       │           ┌──────────┐                               │
+│       │           │ COMPLETE │<──────────────────────────────┘
+│       │           └──────────┘    (if audit passes)
+│       │
+│       └─────────────────────── (if issues found)
+└──────────────────────────────────────────────────────────────┘
+```
+
+| State | Entry Condition | Actions | Exit Condition |
+| :--- | :--- | :--- | :--- |
+| **RED** | Start of loop | Identify ALL failures and issues | All issues cataloged |
+| **GREEN** | RED complete | Fix issues with MINIMAL changes | All fixes applied |
+| **AUDIT** | GREEN complete | Double-audit with honest assessment | Audit passes/fails |
+| **SELF-CORRECT** | AUDIT failed | Address audit findings | Corrections applied |
+| **COMPLETE** | AUDIT passed | Document results | Loop ends |
+
+### Circuit Breaker Rules
+
+1. **Max Changes Per Pass** — 10% of total character count
+2. **Verification** — 500-char random sample comparison after each change
+3. **Convergence Detection** — Stop if change delta < 2% for 2 consecutive passes
+4. **Oscillation Detection** — If same issue reappears 3 times, escalate
+5. **Hard Stop** — 10 maximum iterations per loop
+
+---
+
+## Quick Start
+
+### 1. Copy Into Your Project
+
+```bash
+cp -r savant-protocol/ /path/to/your/project/
+```
+
+### 2. Configure for Your Language
+
+Edit `protocol.config.yaml`:
+
+```yaml
+language: "rust"  # rust | typescript | python | go | java | csharp
+
+commands:
+  build: "cargo build"
+  test: "cargo test"
+  type_check: "cargo check"
+  lint: "cargo clippy -- -D warnings"
+  format: "cargo fmt"
+  clean: "cargo clean"
+```
+
+### 3. Activate the Protocol
+
+Copy the starter prompt from `STARTER-PROMPT.md` into your agent's system prompt.
+The agent will be forced to read the protocol files and prove compliance before
+beginning any work.
+
+### 4. Verify Compliance
+
+The agent must complete the boot sequence:
+
+1. List all 8 Immutable Laws by number and exact name
+2. Confirm language, all 6 validation commands, and `max_file_lines` from config
+3. Confirm naming conventions from the language-specific coding standard
+4. State the 5 Perfection Loop FSM states in order
+5. State all 5 circuit breaker rules
+6. List all directory paths from config
+
+---
+
+## Project Structure
+
+```text
+savant-protocol/
+├── ECHO.md                      # Universal bootstrap (read this first)
+├── protocol.config.yaml         # Project-specific configuration
+├── STARTER-PROMPT.md            # Agent activation prompts (universal + language-specific)
+├── README.md                    # This file
+├── overview.jpg                 # Protocol overview diagram
+├── coding-standards/            # Language-specific naming and style
+│   ├── rust.md                  #   Rust conventions (PascalCase structs, snake_case fns)
+│   ├── typescript.md            #   TypeScript conventions (camelCase, strict mode)
+│   └── python.md                #   Python conventions (snake_case, type hints)
+├── templates/                   # Document templates
+│   ├── FID-TEMPLATE.md          #   Findings document template
+│   └── SESSION-SUMMARY.md      #   Session summary template
+└── dev/                         # Runtime state (gitignored, created at runtime)
+    ├── LEARNINGS.md             # Cross-session lessons learned
+    ├── findings/                # FID documents (Created → Closed lifecycle)
+    ├── session-summaries/       # Session summaries (YYYY-MM-DD-HHMM format)
+    ├── plans/                   # Implementation plans
+    └── baselines/               # Reference code patterns
+```
+
+---
+
+## Configuration Reference
+
+| Field | Default | Description |
+| :--- | :--- | :--- |
+| `language` | `CHANGE_ME` | Project language (`rust`, `typescript`, `python`, `go`, `java`, `csharp`) |
+| `commands.build` | placeholder | Compile/build command |
+| `commands.test` | placeholder | Test runner command |
+| `commands.type_check` | placeholder | Type checking command |
+| `commands.lint` | placeholder | Linting command |
+| `commands.format` | placeholder | Code formatting command |
+| `commands.clean` | placeholder | Clean/build artifact removal command |
+| `quality.max_file_lines` | `300` | Maximum lines per file |
+| `quality.max_function_lines` | `50` | Maximum lines per function |
+| `quality.max_line_length` | `100` | Maximum characters per line |
+| `quality.max_complexity` | `10` | Maximum cyclomatic complexity |
+| `quality.max_params` | `4` | Maximum function parameters |
+| `quality.max_comment_density` | `0.33` | Max comment-to-code ratio |
+| `quality.max_nesting_depth` | `3` | Maximum nesting depth |
+| `testing.fuzz_enabled` | `false` | Enable fuzz testing |
+| `testing.mutation_enabled` | `false` | Enable mutation testing |
+| `testing.coverage_threshold` | `80` | Minimum coverage percentage |
+| `testing.test_timeout` | `30` | Test timeout in seconds |
+| `testing.parallel_tests` | `true` | Run tests in parallel |
+| `fid.auto_create` | `true` | Auto-create FIDs for discovered issues |
+| `fid.severity_levels` | `["critical", "high", "medium", "low"]` | Valid severity levels |
+| `fid.max_open_fids` | `20` | Maximum concurrent open FIDs |
+| `perfection_loop.max_iterations` | `10` | Hard stop for Perfection Loop |
+| `perfection_loop.change_threshold` | `0.10` | Max 10% character change per pass |
+| `perfection_loop.convergence_threshold` | `0.02` | Convergence detection threshold |
+| `perfection_loop.oscillation_limit` | `3` | Same-issue reappearance limit |
+| `session.auto_summary` | `true` | Auto-generate session summaries |
+| `session.summary_interval` | `30` | Summary interval in minutes |
+| `session.max_session_hours` | `4` | Maximum session duration |
+
+---
+
+## Adding a New Language
+
+1. Create `coding-standards/{language}.md` following the existing templates
+2. Set `language: "{language}"` in `protocol.config.yaml`
+3. Update `commands` section with your toolchain
+4. Add a language-specific variant to `STARTER-PROMPT.md`
+
+---
+
+## FID Lifecycle
+
+Findings documents (FIDs) track discovered issues through resolution:
+
+```
+Created → Analyzed → Fixed → Verified → Closed
+   │         │         │         │          │
+   └─────────┴─────────┴─────────┴──────────┘
+        All stages require evidence
+```
+
+When to create a FID:
+- Bug discovered during implementation
+- Architectural issue identified
+- Performance bottleneck found
+- Security concern noticed
+- Improvement opportunity seen
+
+See `templates/FID-TEMPLATE.md` for the standard format.
+
+---
+
+## Session Lifecycle
+
+| Phase | Actions |
+| :--- | :--- |
+| **Start** | Read ECHO.md, load config, load coding standards, review LEARNINGS.md, create session summary |
+| **During** | Work one task at a time, follow Perfection Loop, document findings, create FIDs, update summary |
+| **End** | Run all validation commands, update session summary, note blockers, update LEARNINGS.md |
+
+---
+
+## Documentation
+
+- [ECHO Protocol](ECHO.md) — The universal bootstrap specification
+- [Starter Prompts](STARTER-PROMPT.md) — Agent activation prompts for all languages
+- [Rust Standards](coding-standards/rust.md) — Rust naming conventions and patterns
+- [TypeScript Standards](coding-standards/typescript.md) — TypeScript naming conventions and patterns
+- [Python Standards](coding-standards/python.md) — Python naming conventions and patterns
+- [FID Template](templates/FID-TEMPLATE.md) — Findings document template
+- [Session Summary Template](templates/SESSION-SUMMARY.md) — Session summary template
+
+---
+
+<div align="center">
+
+_Engineered discipline for autonomous agents._
+
+**ECHO Protocol** &bull; **Savant** &bull; 2026
+
+</div>
