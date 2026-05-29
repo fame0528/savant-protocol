@@ -3,7 +3,7 @@
 
 <img src="overview.jpg" alt="ECHO Protocol Overview" width="850" />
 
-# ECHO PROTOCOL v3.0.0
+# ECHO PROTOCOL v4.0.0
 
 **Universal Agent Bootstrap. Language-Agnostic. Zero-Cost.**
 
@@ -11,9 +11,9 @@ A structured quality gate framework for AI agent sessions. Drop into any project
 to enforce test-driven development, iterative refinement, honest verification,
 and mandatory coding standards — regardless of language.
 
-**8 Immutable Laws** governing all agent behavior. **Perfection Loop FSM** with
+**15 Laws** governing all agent behavior (4 immutable process + 11 extended code). **Five Questions** evaluation framework. **Perfection Loop FSM** with
 Levenshtein-constrained change control. **Circuit breaker rules** preventing
-oscillation and runaway loops. Enterprise-grade agent discipline out of the box.
+oscillation and runaway loops. **Anti-patterns** explicitly forbidden. **Emergency procedures** for stuck states. Enterprise-grade agent discipline out of the box.
 
 [![License](https://img.shields.io/badge/License-MIT-%23000000?style=flat-square&logo=github&logoColor=%2300fbff)](LICENSE)
 [![Rust](https://img.shields.io/badge/Rust-Supported-%23000000?style=flat-square&logo=rust&logoColor=%2300fbff)](coding-standards/rust.md)
@@ -29,7 +29,8 @@ oscillation and runaway loops. Enterprise-grade agent discipline out of the box.
 The ECHO Protocol is a universal agent bootstrap system that enforces structured
 engineering discipline on any AI agent, in any language, on any project:
 
-- **8 Immutable Laws** — Non-negotiable rules covering TDD, iterative refinement, double audit, documentation, coding standards, validation, production-like testing, and structured fuzz/mutation testing
+- **15 Laws** — 4 immutable process laws (read first, present before act, verify, call-graph reachability) + 11 extended code laws (no placeholders, no type safety shortcuts, search existing code, utility-first, all error paths handled, build stays clean)
+- **Five Questions** — Evaluation framework: works for ALL cases? Scales to 1000? Survives hostile attacker? Maintainable in 2 years? Sets industry standard?
 - **Perfection Loop FSM** — 5-state finite state machine (RED → GREEN → AUDIT → SELF-CORRECT → COMPLETE) with mandatory transitions and convergence detection
 - **Levenshtein Change Control** — 10% character-change cap per pass prevents oscillation and ensures stable convergence
 - **Circuit Breaker Rules** — 5 hard rules preventing runaway loops: max changes, random sample verification, convergence detection, oscillation detection, and hard iteration stop
@@ -38,22 +39,39 @@ engineering discipline on any AI agent, in any language, on any project:
 - **FID Lifecycle** — Findings documents track bugs, architectural issues, and improvements through a structured lifecycle: Created → Analyzed → Fixed → Verified → Closed
 - **Session Management** — Structured session lifecycle with start/during/end phases, automatic summaries, and cross-session learning via `LEARNINGS.md`
 - **Honest Assessment** — All claims must be verifiable through tool output. No self-reporting. No assumptions. Proof or it didn't happen
+- **Anti-Patterns** — 11 explicitly forbidden behaviors (simplest approach, quick fix, speed over quality, good enough, swallowed errors, etc.)
+- **Emergency Procedures** — Recovery protocols for stuck states: test failures, compilation failures, looping detection
+- **Autonomy Levels** — 3 levels: Guided (user present), Supervised (user available), Autonomous (default, push at will)
 - **Template Library** — Pre-built templates for FIDs and session summaries ensure consistent documentation across all agent sessions
 
 ---
 
-## The 8 Immutable Laws
+## The 15 Laws
+
+### Laws 1-4: The Immutable Process Laws
 
 | # | Law | Purpose |
 | :-: | :--- | :--- |
-| 1 | **TDD Fix/Verify** | All implementations follow test-driven development. Tests are executable documentation |
-| 2 | **Perfection Loop via Levenshtein** | Iterative refinement with 10% change cap per pass and convergence detection |
-| 3 | **Double Audit with Honest Assessment** | Two verification methods required. Self-reporting is prohibited |
-| 4 | **Documentation Required** | No feature exists without module-level docs, API contracts, error conditions, and security implications |
-| 5 | **Coding Standards** | Language-specific naming and style from `coding-standards/{language}.md`. Max 300 lines per file |
-| 6 | **Validate Before Finalizing** | Full validation (build + test + type-check + lint) before any commit or PR |
-| 7 | **Test in Production-Like** | Test environments must mirror production: same schemas, security, topology, and runtime versions |
-| 8 | **No Fuzz/Mutation Without Harness** | Fuzz and mutation testing require defined harnesses, coverage targets, and auto-triage |
+| 1 | **Read 0-EOF Before Touch** | Every file read completely before any edit. No exceptions. |
+| 2 | **Present Before Act** | Every change presented with full impact analysis BEFORE implementation. |
+| 3 | **Verify Before Proceed** | Every change verified with build/test commands before moving on. |
+| 4 | **Verify Call-Graph Reachability** | After wiring any feature, grep entry points to confirm it is called. |
+
+### Laws 5-15: The Extended Code Laws
+
+| # | Law | Purpose |
+| :-: | :--- | :--- |
+| 5 | **No pseudo-code, TODOs, or placeholders** | Every line must be production-ready |
+| 6 | **No type safety shortcuts** | No `unwrap()` or `expect()` in non-test code |
+| 7 | **Search existing code first** | Expand existing functions before creating duplicates |
+| 8 | **Log intent before coding** | Document the intended change before implementation |
+| 9 | **Production-grade documentation** | Module-level docs, API contracts, error conditions |
+| 10 | **Update tracking after every feature** | FID status, changelog, progress tracker |
+| 11 | **Follow discovered patterns exactly** | Consistency over cleverness |
+| 12 | **No sensitive data in logs** | Never expose keys, tokens, passwords, or PII |
+| 13 | **Utility-first, universal logic** | One function, one truth. Combine overlap. |
+| 14 | **All error paths handled** | Every `Result` propagated or handled explicitly |
+| 15 | **Build stays clean** | Zero errors, zero warnings after every edit |
 
 ---
 
@@ -130,7 +148,7 @@ beginning any work.
 
 The agent must complete the boot sequence:
 
-1. List all 8 Immutable Laws by number and exact name
+1. List all 15 Laws by number and exact name
 2. Confirm language, all 6 validation commands, and `max_file_lines` from config
 3. Confirm naming conventions from the language-specific coding standard
 4. State the 5 Perfection Loop FSM states in order

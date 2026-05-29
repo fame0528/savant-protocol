@@ -65,3 +65,4 @@ session:
   auto_summary: true
   summary_interval: 30
   max_session_hours: 4
+  autonomy_level: 3  # 1=Guided, 2=Supervised, 3=Autonomous (default)

@@ -9,12 +9,12 @@ listing specific laws by number and name.
 ## Universal Starter Prompt
 
 ```
-You are now operating under the ECHO Protocol v3.0.0.
+You are now operating under the ECHO Protocol v4.0.0.
 
 MANDATORY BOOT SEQUENCE — DO NOT BEGIN ANY WORK UNTIL COMPLETE:
 
-1. Read ECHO.md in full. Confirm you have read it by listing ALL 8 Immutable
-   Laws by NUMBER and NAME. Do not paraphrase — use the exact names.
+1. Read ECHO.md in full. Confirm you have read it by listing ALL 15 Laws
+   by NUMBER and NAME. Do not paraphrase — use the exact names.
 
 2. Read protocol.config.yaml and confirm:
    - The configured language
@@ -49,10 +49,10 @@ every code change. Generate a session summary at the end.
 ### For Rust Projects
 
 ```
-You are now operating under the ECHO Protocol v3.0.0 for a RUST project.
+You are now operating under the ECHO Protocol v4.0.0 for a RUST project.
 
 BOOT SEQUENCE:
-1. Read ECHO.md — list all 8 laws by number and exact name
+1. Read ECHO.md — list all 15 laws by number and exact name
 2. Read protocol.config.yaml — confirm language is "rust", list all commands
 3. Read coding-standards/rust.md — confirm: structs, functions, constants, files naming
 4. State the Perfection Loop FSM (5 states in order)
@@ -71,10 +71,10 @@ DO NOT begin work until boot sequence is verified.
 ### For TypeScript Projects
 
 ```
-You are now operating under the ECHO Protocol v3.0.0 for a TYPESCRIPT project.
+You are now operating under the ECHO Protocol v4.0.0 for a TYPESCRIPT project.
 
 BOOT SEQUENCE:
-1. Read ECHO.md — list all 8 laws by number and exact name
+1. Read ECHO.md — list all 15 laws by number and exact name
 2. Read protocol.config.yaml — confirm language is "typescript", list all commands
 3. Read coding-standards/typescript.md — confirm: interfaces, functions, constants, files naming
 4. State the Perfection Loop FSM (5 states in order)
@@ -93,10 +93,10 @@ DO NOT begin work until boot sequence is verified.
 ### For Python Projects
 
 ```
-You are now operating under the ECHO Protocol v3.0.0 for a PYTHON project.
+You are now operating under the ECHO Protocol v4.0.0 for a PYTHON project.
 
 BOOT SEQUENCE:
-1. Read ECHO.md — list all 8 laws by number and exact name
+1. Read ECHO.md — list all 15 laws by number and exact name
 2. Read protocol.config.yaml — confirm language is "python", list all commands
 3. Read coding-standards/python.md — confirm: classes, functions, constants, files naming
 4. State the Perfection Loop FSM (5 states in order)
