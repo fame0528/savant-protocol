@@ -1,8 +1,8 @@
-# ECHO PROTOCOL v0.0.4 — Universal Agent Bootstrap
+# ECHO PROTOCOL v0.0.5 — Universal Agent Bootstrap
 
 > **This is the SINGLE bootstrap file for any AI agent session.**
 > Language-agnostic. Project-specific details live in `protocol.config.yaml`.
-> **Version:** 0.0.4 | **Status:** ACTIVE | **Non-Negotiable: YES**
+> **Version:** 0.0.5 | **Status:** ACTIVE | **Non-Negotiable: YES**
 
 ---
 
@@ -33,6 +33,7 @@ conventions, and file extensions are defined in `protocol.config.yaml` and the
 | **Honest Assessment** | Verifiable output-based evaluation vs. self-reporting (see Honest Assessment section below) |
 | **Five Questions** | Evaluation framework for any approach |
 | **Anti-Pattern** | Forbidden behavior that violates the protocol |
+| **Double Audit** | Every change verified by two independent methods (static analysis + runtime tests). Self-reporting is prohibited. |
 | **`protocol.config.yaml`** | Project-specific configuration (language, commands, paths) |
 | **`coding-standards/`** | Language-specific naming and style conventions |
 

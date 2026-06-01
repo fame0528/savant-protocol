@@ -3,7 +3,7 @@
 
 <img src="overview.jpg" alt="ECHO Protocol Overview" width="850" />
 
-# ECHO PROTOCOL v0.0.4
+# ECHO PROTOCOL v0.0.5
 
 **Universal Agent Bootstrap. Language-Agnostic. Zero-Cost.**
 
@@ -85,7 +85,7 @@ engineering discipline on any AI agent, in any language, on any project:
 | # | Law | Purpose |
 | :-: | :--- | :--- |
 | 5 | **No pseudo-code, TODOs, or placeholders** | Every line must be production-ready |
-| 6 | **No type safety shortcuts** | No `unwrap()` or `expect()` in non-test code |
+| 6 | **No type safety shortcuts** | Use language-appropriate safe patterns (see coding-standards) |
 | 7 | **Search existing code first** | Expand existing functions before creating duplicates |
 | 8 | **Log intent before coding** | Document the intended change before implementation |
 | 9 | **Production-grade documentation** | Module-level docs, API contracts, error conditions |
@@ -172,7 +172,7 @@ beginning any work.
 The agent must complete the boot sequence:
 
 1. List all 15 Laws by number and exact name
-2. Confirm language, all 6 validation commands, and `max_file_lines` from config
+2. Confirm language, all 6 validation commands, and `max_file_lines`, `max_function_lines`, `max_line_length` from config
 3. Confirm naming conventions from the language-specific coding standard
 4. State the 5 Perfection Loop FSM states in order
 5. State all 5 circuit breaker rules

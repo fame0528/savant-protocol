@@ -16,6 +16,17 @@ boilerplate release to reflect independent versioning.
 
 ---
 
+## v0.0.5 — 2026-06-01
+
+- [MEDIUM] README Law 6: language-agnostic wording (matches ECHO.md spec)
+- [MEDIUM] CHANGELOG v0.0.3: removed duplicate prose block
+- [LOW] dev/fids/archive/.gitkeep created (directory scaffolded on clone)
+- [LOW] .gitignore: explicit archive/ exclusion for .gitkeep tracking
+- [LOW] README verification step 2: max_function_lines + max_line_length confirmed
+- [LOW] MIGRATION.md verify tree: includes MIGRATION.md and LICENSE
+- [LOW] Double Audit added to ECHO.md Vocabulary table
+- [LOW] MIGRATION.md copy commands: README.md included
+
 ## v0.0.4 — 2026-06-01
 
 - [MEDIUM] README tree: added MIGRATION.md and LICENSE
@@ -47,14 +58,6 @@ boilerplate release to reflect independent versioning.
 - [LOW] LEARNINGS date format fixed to YYYY-MM-DD-HHMM
 - [LOW] FID filename convention added
 - [LOW] Quickstart notes dev/ directories auto-created
-
-- Version source of truth documented in CHANGELOG header (`VERSION` file is canonical)
-- Version reset from Savant v4.0.0 acknowledged in CHANGELOG
-- Law 8 "log intent" destination specified (session summary)
-- Universal starter prompt aligned to 8 boot steps (matches language variants)
-- LEARNINGS.md date format corrected to YYYY-MM-DD-HHMM (consistent with SESSION-SUMMARY)
-- FID filename convention added to template (`FID-YYYY-MMDD-NNN-[short-description].md`)
-- Quickstart notes dev/ directories are gitignored and auto-created at runtime
 
 ## v0.0.2 — 2026-06-01
 

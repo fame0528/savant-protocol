@@ -16,6 +16,7 @@ cp -r /tmp/echo-protocol/MIGRATION.md .
 cp -r /tmp/echo-protocol/VERSION .
 cp -r /tmp/echo-protocol/CHANGELOG.md .
 cp -r /tmp/echo-protocol/LICENSE .
+cp -r /tmp/echo-protocol/README.md .
 cp -r /tmp/echo-protocol/.markdownlint.json .
 cp -r /tmp/echo-protocol/templates/ ./templates/
 cp -r /tmp/echo-protocol/coding-standards/ ./coding-standards/
@@ -56,7 +57,7 @@ Edit `protocol.config.yaml` and set:
 
 ```yaml
 protocol:
-  version: "0.0.4"
+  version: "0.0.5"
   strict_mode: true
 
 project:
@@ -84,8 +85,10 @@ your-project/
 ├── ECHO.md
 ├── protocol.config.yaml       # Configured with your language + commands
 ├── STARTER-PROMPT.md
+├── MIGRATION.md               # This file
 ├── VERSION
 ├── CHANGELOG.md
+├── LICENSE
 ├── .markdownlint.json
 ├── templates/
 │   ├── FID-TEMPLATE.md
