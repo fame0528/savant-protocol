@@ -24,7 +24,8 @@
 ### Error Handling
 
 - Use `Result<T, E>` for all fallible operations
-- Never use `unwrap()` in library code — use `?` operator or `.expect("reason")`
+- Never use `unwrap()` or `expect()` in non-test code — use `?` operator, `match`, or explicit error types
+- `.expect("reason")` is acceptable only in tests, examples, and `main.rs` where panicking is the intended behavior
 - Define project-specific error types using `thiserror`
 - Use `anyhow` for application-level error propagation
 

@@ -16,6 +16,11 @@ boilerplate release to reflect independent versioning.
 
 ---
 
+## v0.0.9 — 2026-06-01
+
+- [LOW] rust.md: .expect() contradiction resolved — forbidden in library code, acceptable only in tests/examples/main.rs
+- [LOW] rust.md: aligns with ECHO.md anti-patterns table (unwrap + expect both forbidden in non-test code)
+
 ## v0.0.8 — 2026-06-01
 
 - [LOW] README anti-pattern count: 11→10 (matches ECHO.md table)
