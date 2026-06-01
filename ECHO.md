@@ -1,8 +1,8 @@
-# ECHO PROTOCOL v0.0.1 — Universal Agent Bootstrap
+# ECHO PROTOCOL v0.0.2 — Universal Agent Bootstrap
 
 > **This is the SINGLE bootstrap file for any AI agent session.**
 > Language-agnostic. Project-specific details live in `protocol.config.yaml`.
-> **Version:** 0.0.1 | **Status:** ACTIVE | **Non-Negotiable: YES**
+> **Version:** 0.0.2 | **Status:** ACTIVE | **Non-Negotiable: YES**
 
 ---
 
