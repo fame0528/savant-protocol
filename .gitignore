@@ -1,6 +1,7 @@
 # Agent runtime state — not source code
 dev/session-summaries/*
 dev/fids/*
+!dev/fids/.gitkeep
 !dev/fids/archive/
 !dev/fids/archive/.gitkeep
 !.gitkeep

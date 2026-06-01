@@ -3,12 +3,13 @@
 
 <img src="overview.jpg" alt="ECHO Protocol Overview" width="850" />
 
-# ECHO PROTOCOL v0.0.6
+# ECHO PROTOCOL v0.0.7
 
 **Universal Agent Bootstrap. Language-Agnostic. Zero-Cost.**
 
 > **This is the landing page.** For the protocol specification (the single source
-> of truth for all agent behavior), see [ECHO.md](ECHO.md).
+> of truth for all agent behavior), see [ECHO.md](ECHO.md). Content below is
+> summarized for quick orientation — ECHO.md is authoritative.
 
 A structured quality gate framework for AI agent sessions. Drop into any project
 to enforce test-driven development, iterative refinement, honest verification,
@@ -108,14 +109,17 @@ engineering discipline on any AI agent, in any language, on any project:
 │  ┌─────────┐    ┌──────────┐    ┌─────────┐    ┌─────────┐ │
 │  │   RED   │───>│  GREEN   │───>│  AUDIT  │───>│  SELF   │ │
 │  │  PHASE  │    │  PHASE   │    │  PHASE  │    │ CORRECT │ │
-│  └─────────┘    └──────────┘    └─────────┘    └────┬────┘ │
-│       ^                                              │      │
-│       │                │                                     │
-│       │           ┌──────────┐                               │
-│       │           │ COMPLETE │<──────────────────────────────┘
-│       │           └──────────┘    (if audit passes)
+│  └─────────┘    └─────┬────┘    └─────────┘    └────┬────┘ │
+│       ^                │                             │      │
+│       │                │           ┌──────────┐      │      │
+│       │                │           │ COMPLETE │<─────┘      │
+│       │                │           └──────────┘  (if audit  │
+│       │                │                         passes)    │
+│       │                │                                    │
+│       │                └────────────────────────────────────┘
+│       │                   (corrections applied → re-verify)
 │       │
-│       └─────────────────────── (if issues found)
+│       └─────────────────── (if new issues found)
 └──────────────────────────────────────────────────────────────┘
 ```
 

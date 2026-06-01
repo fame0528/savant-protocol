@@ -16,6 +16,16 @@ boilerplate release to reflect independent versioning.
 
 ---
 
+## v0.0.7 — 2026-06-01
+
+- [LOW] .gitignore: dev/fids/.gitkeep negation fixed (both repo and MIGRATION template)
+- [LOW] Anti-patterns cross-reference: points to coding-standards instead of wrong table
+- [LOW] SESSION-SUMMARY date format: fixed to YYYY-MM-DD-HHMM (consistent)
+- [LOW] MIGRATION.md: overview.jpg added to copy commands and verify tree
+- [LOW] README: authority note expanded — ECHO.md is summarized, not duplicated
+- [LOW] FSM diagram: SELF-CORRECT→GREEN transition added (corrections flow to re-verify)
+- [LOW] README FSM diagram synced with ECHO.md
+
 ## v0.0.6 — 2026-06-01
 
 - [LOW] MIGRATION.md verify tree: README.md listed

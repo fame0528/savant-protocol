@@ -18,6 +18,7 @@ cp -r /tmp/echo-protocol/CHANGELOG.md .
 cp -r /tmp/echo-protocol/LICENSE .
 cp -r /tmp/echo-protocol/README.md .
 cp -r /tmp/echo-protocol/.markdownlint.json .
+cp -r /tmp/echo-protocol/overview.jpg .
 cp -r /tmp/echo-protocol/templates/ ./templates/
 cp -r /tmp/echo-protocol/coding-standards/ ./coding-standards/
 ```
@@ -36,6 +37,7 @@ Add these lines to your `.gitignore`:
 # ECHO Protocol runtime state
 dev/session-summaries/*
 dev/fids/*
+!dev/fids/.gitkeep
 !dev/fids/archive/
 !dev/fids/archive/.gitkeep
 !.gitkeep
@@ -60,7 +62,7 @@ Edit `protocol.config.yaml` and set:
 
 ```yaml
 protocol:
-  version: "0.0.6"
+  version: "0.0.7"
   strict_mode: true
 
 project:
@@ -94,6 +96,7 @@ your-project/
 ├── CHANGELOG.md
 ├── LICENSE
 ├── .markdownlint.json
+├── overview.jpg                 # Protocol overview diagram
 ├── templates/
 │   ├── FID-TEMPLATE.md
 │   └── SESSION-SUMMARY.md

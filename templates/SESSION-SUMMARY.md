@@ -1,6 +1,6 @@
 # Session Summary: YYYY-MM-DD HH:MM
 
-**Session ID:** YYYY-MMDD-HHMM-[short-description]
+**Session ID:** YYYY-MM-DD-HHMM-[short-description]
 **Duration:** [Start time] — [End time]
 **Status:** active | completed | interrupted
 

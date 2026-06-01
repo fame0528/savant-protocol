@@ -1,8 +1,8 @@
-# ECHO PROTOCOL v0.0.6 — Universal Agent Bootstrap
+# ECHO PROTOCOL v0.0.7 — Universal Agent Bootstrap
 
 > **This is the SINGLE bootstrap file for any AI agent session.**
 > Language-agnostic. Project-specific details live in `protocol.config.yaml`.
-> **Version:** 0.0.6 | **Status:** ACTIVE | **Non-Negotiable: YES**
+> **Version:** 0.0.7 | **Status:** ACTIVE | **Non-Negotiable: YES**
 
 ---
 
@@ -147,14 +147,17 @@ The Perfection Loop is a Finite State Machine with mandatory transitions:
 │  ┌─────────┐    ┌──────────┐    ┌─────────┐    ┌─────────┐ │
 │  │   RED   │───>│  GREEN   │───>│  AUDIT  │───>│  SELF   │ │
 │  │  PHASE  │    │  PHASE   │    │  PHASE  │    │ CORRECT │ │
-│  └─────────┘    └──────────┘    └─────────┘    └────┬────┘ │
-│       ^                                              │      │
-│       │                │                                     │
-│       │           ┌──────────┐                               │
-│       │           │ COMPLETE │<──────────────────────────────┘
-│       │           └──────────┘    (if audit passes)
+│  └─────────┘    └─────┬────┘    └─────────┘    └────┬────┘ │
+│       ^                │                             │      │
+│       │                │           ┌──────────┐      │      │
+│       │                │           │ COMPLETE │<─────┘      │
+│       │                │           └──────────┘  (if audit  │
+│       │                │                         passes)    │
+│       │                │                                    │
+│       │                └────────────────────────────────────┘
+│       │                   (corrections applied → re-verify)
 │       │
-│       └─────────────────────── (if issues found)
+│       └─────────────────── (if new issues found)
 └──────────────────────────────────────────────────────────────┘
 ```
 
@@ -275,7 +278,7 @@ When a FID status is updated to **Closed**, the agent MUST:
 | "Good enough" | Good enough is never good enough | — |
 | Deferring approved work without presenting | Scope reduction is a silent decision | 2 |
 | Writing pseudo-code or placeholders | Every line must be production-ready | 5 |
-| Swallowed errors | Silently discarding errors where failure is not acceptable (see language-specific table below) | 14 |
+| Swallowed errors | Silently discarding errors where failure is not acceptable (see language-specific error handling patterns in coding-standards) | 14 |
 
 ### Language-Specific Type Safety Shortcuts (Law 6)
 
