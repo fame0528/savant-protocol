@@ -70,3 +70,13 @@ src/
 - [ ] Magic numbers (extract to constants)
 - [ ] God classes (>300 lines)
 - [ ] Circular imports
+
+## Quality Overrides
+
+These override the defaults in `protocol.config.yaml` when Python is the configured language.
+
+| Setting | Default | Python Override | Reason |
+|---------|---------|-----------------|--------|
+| `max_file_lines` | 300 | 400 | Python modules with dataclasses and type hints tend to be longer |
+| `max_function_lines` | 50 | 50 | — |
+| `max_line_length` | 100 | 120 | PEP 8 allows 120 for pragmatic readability |

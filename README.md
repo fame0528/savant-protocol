@@ -19,8 +19,24 @@ oscillation and runaway loops. **Anti-patterns** explicitly forbidden. **Emergen
 [![Rust](https://img.shields.io/badge/Rust-Supported-%23000000?style=flat-square&logo=rust&logoColor=%2300fbff)](coding-standards/rust.md)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Supported-%23000000?style=flat-square&logo=typescript&logoColor=%2300fbff)](coding-standards/typescript.md)
 [![Python](https://img.shields.io/badge/Python-Supported-%23000000?style=flat-square&logo=python&logoColor=%2300fbff)](coding-standards/python.md)
+[![Go](https://img.shields.io/badge/Go-Supported-%23000000?style=flat-square&logo=go&logoColor=%2300fbff)](coding-standards/go.md)
+[![Java](https://img.shields.io/badge/Java-Supported-%23000000?style=flat-square&logo=openjdk&logoColor=%2300fbff)](coding-standards/java.md)
+[![C#](https://img.shields.io/badge/C%23-Supported-%23000000?style=flat-square&logo=csharp&logoColor=%2300fbff)](coding-standards/csharp.md)
 
 </div>
+
+> **Drop this into any project. Your AI agent now follows 15 engineering laws,
+> catches its own mistakes with a finite state machine, and can't loop forever.**
+
+## 30-Second Quickstart
+
+```text
+1. Copy this repo into your project root
+2. Edit protocol.config.yaml → set your language + build/test commands
+3. Paste the starter prompt from STARTER-PROMPT.md into your agent's system prompt
+```
+
+Your agent will boot, prove it read the rules, and begin working under full protocol discipline.
 
 ---
 
@@ -165,14 +181,19 @@ savant-protocol/
 ├── ECHO.md                      # Universal bootstrap (read this first)
 ├── protocol.config.yaml         # Project-specific configuration
 ├── STARTER-PROMPT.md            # Agent activation prompts (universal + language-specific)
+├── MIGRATION.md                 # Retrofit guide for existing projects
 ├── VERSION                      # Protocol version
 ├── CHANGELOG.md                 # Auto-updated by agent on FID closure
 ├── README.md                    # This file
+├── .markdownlint.json           # Markdownlint configuration
 ├── overview.jpg                 # Protocol overview diagram
 ├── coding-standards/            # Language-specific naming and style
 │   ├── rust.md                  #   Rust conventions (PascalCase structs, snake_case fns)
 │   ├── typescript.md            #   TypeScript conventions (camelCase, strict mode)
-│   └── python.md                #   Python conventions (snake_case, type hints)
+│   ├── python.md                #   Python conventions (snake_case, type hints)
+│   ├── go.md                    #   Go conventions (exported/unexported, error returns)
+│   ├── java.md                  #   Java conventions (PascalCase classes, exception hierarchy)
+│   └── csharp.md               #   C# conventions (PascalCase, async/await, I-prefix interfaces)
 ├── templates/                   # Document templates
 │   ├── FID-TEMPLATE.md          #   Feature Implementation Document template
 │   └── SESSION-SUMMARY.md      #   Session summary template
@@ -273,9 +294,13 @@ See `templates/FID-TEMPLATE.md` for the standard format.
 
 - [ECHO Protocol](ECHO.md) — The universal bootstrap specification
 - [Starter Prompts](STARTER-PROMPT.md) — Agent activation prompts for all languages
+- [Migration Guide](MIGRATION.md) — Retrofit protocol into existing projects
 - [Rust Standards](coding-standards/rust.md) — Rust naming conventions and patterns
 - [TypeScript Standards](coding-standards/typescript.md) — TypeScript naming conventions and patterns
 - [Python Standards](coding-standards/python.md) — Python naming conventions and patterns
+- [Go Standards](coding-standards/go.md) — Go naming conventions and patterns
+- [Java Standards](coding-standards/java.md) — Java naming conventions and patterns
+- [C# Standards](coding-standards/csharp.md) — C# naming conventions and patterns
 - [FID Template](templates/FID-TEMPLATE.md) — Feature Implementation Document template
 - [Session Summary Template](templates/SESSION-SUMMARY.md) — Session summary template
 - [Changelog](CHANGELOG.md) — Auto-updated on FID closure

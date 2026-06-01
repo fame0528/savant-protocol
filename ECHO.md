@@ -30,7 +30,7 @@ conventions, and file extensions are defined in `protocol.config.yaml` and the
 | **Perfection Loop** | The iterative fix/verify cycle for code quality (5 steps) |
 | **Levenshtein Metric** | 10% character-change cap per pass to prevent oscillation |
 | **Baseline** | Reference code state showing intended patterns |
-| **Honest Assessment** | Verifiable output-based evaluation vs. self-reporting |
+| **Honest Assessment** | Verifiable output-based evaluation vs. self-reporting (see Honest Assessment section below) |
 | **Five Questions** | Evaluation framework for any approach |
 | **Anti-Pattern** | Forbidden behavior that violates the protocol |
 | **`protocol.config.yaml`** | Project-specific configuration (language, commands, paths) |
@@ -40,7 +40,18 @@ conventions, and file extensions are defined in `protocol.config.yaml` and the
 
 ## The 15 Laws
 
-Laws 1-4 are the Immutable Process Laws governing workflow. Laws 5-15 are the Extended Code Laws governing quality. All are non-negotiable.
+Laws 1-4 are the Immutable Process Laws governing workflow. Laws 5-15 are the Extended Code Laws governing quality.
+
+### Activation Tiers
+
+| Tier | Laws | When Active | Config Flag |
+|------|------|-------------|-------------|
+| **Core** | 1-4 (Immutable Process) | ALWAYS — no exceptions | — |
+| **Extended** | 5-15 (Code Quality) | When `strict_mode: true` (default) | `protocol.strict_mode` |
+
+- **Core laws** are non-negotiable and always enforced regardless of config.
+- **Extended laws** are enforced when `strict_mode: true`. Set to `false` for quick exploration or debugging sessions where full rigor is unnecessary.
+- The boot sequence always confirms Core laws. Extended laws are confirmed only when `strict_mode` is active.
 
 ### Laws 1-4: The Immutable Process Laws
 
@@ -171,27 +182,28 @@ The Perfection Loop is a Finite State Machine with mandatory transitions:
 
 1. Read this ECHO.md first
 2. Load `protocol.config.yaml` to get project-specific commands
-3. Load `coding-standards/{language}.md` for naming conventions
-4. Review `dev/LEARNINGS.md` for known issues
-5. Review all FIDs in `dev/fids/` — flag any non-`Closed` as open items for the session
-6. Create `dev/session-summaries/YYYY-MM-DD-HHMM.md` with:
+3. **BOOT CHECK:** If `language` is set to `"CHANGE_ME"`, HALT. Do not proceed. Require the user to configure the language before continuing.
+4. Load `coding-standards/{language}.md` for naming conventions and quality overrides
+5. Review `dev/LEARNINGS.md` for known issues
+6. Review all FIDs in `dev/fids/` — flag any non-`Closed` as open items for the session
+7. Create `dev/session-summaries/YYYY-MM-DD-HHMM.md` with:
    - Initial state assessment
    - Planned work
    - Dependencies identified
 
 ### During Session
 
-7. Work through one task at a time
-8. Follow the Perfection Loop for each change
-9. Document issues as FIDs in `dev/fids/`
-10. Update session summary with progress
+8. Work through one task at a time
+9. Follow the Perfection Loop for each change
+10. Document issues as FIDs in `dev/fids/`
+11. Update session summary with progress
 
 ### End of Session
 
-11. Run all validation commands from config
-12. Update session summary with final state
-13. Note any blockers or open questions
-14. Update `dev/LEARNINGS.md` with new lessons learned
+12. Run all validation commands from config
+13. Update session summary with final state
+14. Note any blockers or open questions
+15. Update `dev/LEARNINGS.md` with new lessons learned
 
 ---
 
@@ -244,6 +256,20 @@ When a FID status is updated to **Closed**, the agent MUST:
 | Writing pseudo-code or placeholders | Every line must be production-ready | 5 |
 | `unwrap()` or `expect()` in non-test code | Use `?`, `match`, or explicit error types | 6 |
 | Swallowed errors | `let _ = foo()` only where failure is acceptable | 14 |
+
+---
+
+## Honest Assessment
+
+The protocol requires verifiable claims, but this does not mean agents cannot reason about design decisions. The distinction:
+
+| Claim Type | Requirement | Example |
+|-----------|-------------|---------|
+| **Verification claims** ("code compiles", "tests pass") | MUST be backed by tool output | Paste build/test output as evidence |
+| **Design decisions** ("I chose X because Y") | MUST include documented reasoning | Explain tradeoffs, alternatives considered, why this approach wins |
+| **Status claims** ("this is complete", "this is fixed") | MUST be verifiable through independent check | Run audit commands, grep for call-graph reachability |
+
+**Never** claim code works without running verification commands. **Always** explain architectural reasoning when presenting design choices.
 
 ---
 
@@ -326,6 +352,7 @@ Document these in `dev/LEARNINGS.md` to improve future sessions.
 |------|-------|
 | Project config | `protocol.config.yaml` |
 | Language standards | `coding-standards/{language}.md` |
+| Migration guide | `MIGRATION.md` |
 | FID template | `templates/FID-TEMPLATE.md` |
 | Session template | `templates/SESSION-SUMMARY.md` |
 | FIDs | `dev/fids/` |

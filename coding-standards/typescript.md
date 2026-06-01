@@ -73,3 +73,13 @@ src/
 - [ ] Magic numbers or strings (extract to constants)
 - [ ] Component files over 200 lines
 - [ ] Inline styles (use CSS modules or Tailwind)
+
+## Quality Overrides
+
+These override the defaults in `protocol.config.yaml` when TypeScript is the configured language.
+
+| Setting | Default | TS Override | Reason |
+|---------|---------|-------------|--------|
+| `max_file_lines` | 300 | 400 | React components and service files tend to be longer |
+| `max_function_lines` | 50 | 60 | Component render logic can be slightly longer |
+| `max_line_length` | 100 | 100 | — |

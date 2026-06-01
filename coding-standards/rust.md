@@ -65,3 +65,13 @@ src/
 - [ ] `Box<dyn Error>` instead of typed errors
 - [ ] Dead code (unused functions/imports)
 - [ ] `todo!()` or `unimplemented!()` without FID reference
+
+## Quality Overrides
+
+These override the defaults in `protocol.config.yaml` when Rust is the configured language.
+
+| Setting | Default | Rust Override | Reason |
+|---------|---------|---------------|--------|
+| `max_file_lines` | 300 | 300 | — |
+| `max_function_lines` | 50 | 50 | — |
+| `max_line_length` | 100 | 100 | — |
