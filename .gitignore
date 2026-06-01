@@ -1,8 +1,6 @@
 # Agent runtime state — not source code
 dev/session-summaries/
-dev/findings/
-dev/plans/
-dev/baselines/
+dev/fids/
 
 # Keep LEARNINGS.md tracked — cross-session knowledge
 !dev/LEARNINGS.md

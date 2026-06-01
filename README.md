@@ -3,7 +3,7 @@
 
 <img src="overview.jpg" alt="ECHO Protocol Overview" width="850" />
 
-# ECHO PROTOCOL v4.0.0
+# ECHO PROTOCOL v0.0.1
 
 **Universal Agent Bootstrap. Language-Agnostic. Zero-Cost.**
 
@@ -36,7 +36,7 @@ engineering discipline on any AI agent, in any language, on any project:
 - **Circuit Breaker Rules** — 5 hard rules preventing runaway loops: max changes, random sample verification, convergence detection, oscillation detection, and hard iteration stop
 - **Double Audit** — Every change verified by two independent methods (static analysis + runtime tests). Self-reporting is prohibited
 - **Language-Agnostic Design** — Core protocol is language-neutral. Language-specific rules live in `coding-standards/{language}.md`. Configuration lives in `protocol.config.yaml`
-- **FID Lifecycle** — Findings documents track bugs, architectural issues, and improvements through a structured lifecycle: Created → Analyzed → Fixed → Verified → Closed
+- **FID Lifecycle** — Feature Implementation Documents track bugs, architectural issues, and improvements through a structured lifecycle: Created → Analyzed → Fixed → Verified → Closed → Archived
 - **Session Management** — Structured session lifecycle with start/during/end phases, automatic summaries, and cross-session learning via `LEARNINGS.md`
 - **Honest Assessment** — All claims must be verifiable through tool output. No self-reporting. No assumptions. Proof or it didn't happen
 - **Anti-Patterns** — 11 explicitly forbidden behaviors (simplest approach, quick fix, speed over quality, good enough, swallowed errors, etc.)
@@ -77,7 +77,7 @@ engineering discipline on any AI agent, in any language, on any project:
 
 ## Perfection Loop FSM
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────┐
 │                    PERFECTION LOOP                           │
 │                    Finite State Machine                      │
@@ -154,6 +154,7 @@ The agent must complete the boot sequence:
 4. State the 5 Perfection Loop FSM states in order
 5. State all 5 circuit breaker rules
 6. List all directory paths from config
+7. Confirm the autonomy level from config
 
 ---
 
@@ -164,6 +165,8 @@ savant-protocol/
 ├── ECHO.md                      # Universal bootstrap (read this first)
 ├── protocol.config.yaml         # Project-specific configuration
 ├── STARTER-PROMPT.md            # Agent activation prompts (universal + language-specific)
+├── VERSION                      # Protocol version
+├── CHANGELOG.md                 # Auto-updated by agent on FID closure
 ├── README.md                    # This file
 ├── overview.jpg                 # Protocol overview diagram
 ├── coding-standards/            # Language-specific naming and style
@@ -171,14 +174,13 @@ savant-protocol/
 │   ├── typescript.md            #   TypeScript conventions (camelCase, strict mode)
 │   └── python.md                #   Python conventions (snake_case, type hints)
 ├── templates/                   # Document templates
-│   ├── FID-TEMPLATE.md          #   Findings document template
+│   ├── FID-TEMPLATE.md          #   Feature Implementation Document template
 │   └── SESSION-SUMMARY.md      #   Session summary template
 └── dev/                         # Runtime state (gitignored, created at runtime)
     ├── LEARNINGS.md             # Cross-session lessons learned
-    ├── findings/                # FID documents (Created → Closed lifecycle)
-    ├── session-summaries/       # Session summaries (YYYY-MM-DD-HHMM format)
-    ├── plans/                   # Implementation plans
-    └── baselines/               # Reference code patterns
+    ├── fids/                    # Active FIDs (Created → Verified lifecycle)
+    │   └── archive/             # Closed FIDs auto-moved here
+    └── session-summaries/       # Session summaries (YYYY-MM-DD-HHMM format)
 ```
 
 ---
@@ -230,12 +232,12 @@ savant-protocol/
 
 ## FID Lifecycle
 
-Findings documents (FIDs) track discovered issues through resolution:
+Feature Implementation Documents (FIDs) track discovered issues through resolution:
 
-```
-Created → Analyzed → Fixed → Verified → Closed
-   │         │         │         │          │
-   └─────────┴─────────┴─────────┴──────────┘
+```text
+Created → Analyzed → Fixed → Verified → Closed → Archived
+   │         │         │         │          │         │
+   └─────────┴─────────┴─────────┴──────────┴─────────┘
         All stages require evidence
 ```
 
@@ -246,6 +248,12 @@ When to create a FID:
 - Security concern noticed
 - Improvement opportunity seen
 
+**Auto-Archive:** When a FID reaches `Closed` status, the agent moves it to
+`dev/fids/archive/` and logs the archival in the session summary.
+
+**Auto-Changelog:** On FID closure, the agent appends an entry to `CHANGELOG.md`
+with the FID ID, severity, description, and resolution summary.
+
 See `templates/FID-TEMPLATE.md` for the standard format.
 
 ---
@@ -254,8 +262,8 @@ See `templates/FID-TEMPLATE.md` for the standard format.
 
 | Phase | Actions |
 | :--- | :--- |
-| **Start** | Read ECHO.md, load config, load coding standards, review LEARNINGS.md, create session summary |
-| **During** | Work one task at a time, follow Perfection Loop, document findings, create FIDs, update summary |
+| **Start** | Read ECHO.md, load config, load coding standards, review LEARNINGS.md, review open FIDs, create session summary |
+| **During** | Work one task at a time, follow Perfection Loop, create/update FIDs, auto-archive closed FIDs, update CHANGELOG, update summary |
 | **End** | Run all validation commands, update session summary, note blockers, update LEARNINGS.md |
 
 ---
@@ -267,8 +275,9 @@ See `templates/FID-TEMPLATE.md` for the standard format.
 - [Rust Standards](coding-standards/rust.md) — Rust naming conventions and patterns
 - [TypeScript Standards](coding-standards/typescript.md) — TypeScript naming conventions and patterns
 - [Python Standards](coding-standards/python.md) — Python naming conventions and patterns
-- [FID Template](templates/FID-TEMPLATE.md) — Findings document template
+- [FID Template](templates/FID-TEMPLATE.md) — Feature Implementation Document template
 - [Session Summary Template](templates/SESSION-SUMMARY.md) — Session summary template
+- [Changelog](CHANGELOG.md) — Auto-updated on FID closure
 
 ---
 

@@ -1,7 +1,6 @@
 # FID: [Short Description]
 
 **ID:** FID-YYYY-MMDD-NNN
-**Phase:** FID-START (initial) | FID-FINAL (corrected)
 **Severity:** critical | high | medium | low
 **Status:** created | analyzed | fixed | verified | closed
 **Created:** YYYY-MM-DD HH:MM
@@ -34,7 +33,7 @@ What is the underlying cause?
 ### Evidence
 Include logs, screenshots, code snippets, or test output.
 
-```
+```text
 [Paste evidence here]
 ```
 
@@ -85,6 +84,10 @@ How will we confirm the fix works?
 - **Tests Added:** [Yes/No — describe]
 - **Verified By:** [Verification method]
 - **Commit/PR:** [Reference]
+- **Archived:** YYYY-MM-DD HH:MM (set when moved to `dev/fids/archive/`)
+
+> When status is set to **Closed**, move this file to `dev/fids/archive/` and
+> append an entry to `CHANGELOG.md`.
 
 ## Lessons Learned
 

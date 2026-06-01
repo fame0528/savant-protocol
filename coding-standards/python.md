@@ -39,7 +39,7 @@
 
 ## File Structure
 
-```
+```text
 src/
 ├── __init__.py
 ├── __main__.py           # Entry point

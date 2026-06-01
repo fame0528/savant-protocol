@@ -40,7 +40,7 @@
 
 ## File Structure
 
-```
+```text
 src/
 ├── main.rs          # Entry point only
 ├── lib.rs           # Public API surface

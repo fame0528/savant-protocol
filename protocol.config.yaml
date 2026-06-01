@@ -10,6 +10,9 @@ project:
   description: "Brief project description"
   version: "0.1.0"
 
+protocol:
+  version: "0.0.1"
+
 language: "CHANGE_ME"  # rust | typescript | python | go | java | csharp
 
 commands:
@@ -25,11 +28,10 @@ paths:
   tests: "tests/"
   docs: "docs/"
   dev: "dev/"
-  findings: "dev/findings/"
+  fids: "dev/fids/"
+  fids_archive: "dev/fids/archive/"
   session_summaries: "dev/session-summaries/"
-  plans: "dev/plans/"
   learnings: "dev/LEARNINGS.md"
-  baselines: "dev/baselines/"
 
 quality:
   max_file_lines: 300

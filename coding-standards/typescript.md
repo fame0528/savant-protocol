@@ -42,7 +42,7 @@
 
 ## File Structure
 
-```
+```text
 src/
 ├── index.ts              # Entry point
 ├── types/                # Shared types

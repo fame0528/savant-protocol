@@ -1,8 +1,8 @@
-# ECHO PROTOCOL v4.0.0 — Universal Agent Bootstrap
+# ECHO PROTOCOL v0.0.1 — Universal Agent Bootstrap
 
 > **This is the SINGLE bootstrap file for any AI agent session.**
 > Language-agnostic. Project-specific details live in `protocol.config.yaml`.
-> **Version:** 4.0.0 | **Status:** ACTIVE | **Non-Negotiable: YES**
+> **Version:** 0.0.1 | **Status:** ACTIVE | **Non-Negotiable: YES**
 
 ---
 
@@ -26,7 +26,7 @@ conventions, and file extensions are defined in `protocol.config.yaml` and the
 
 | Term | Definition |
 |------|-----------|
-| **FID** | Fix Implementation Document — tracks bugs, architectural issues, and improvements through resolution |
+| **FID** | Feature Implementation Document — tracks bugs, architectural issues, and improvements through resolution |
 | **Perfection Loop** | The iterative fix/verify cycle for code quality (5 steps) |
 | **Levenshtein Metric** | 10% character-change cap per pass to prevent oscillation |
 | **Baseline** | Reference code state showing intended patterns |
@@ -107,7 +107,7 @@ When evaluating any approach, ask:
 
 The Perfection Loop is a Finite State Machine with mandatory transitions:
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────┐
 │                    PERFECTION LOOP                           │
 │                    Finite State Machine                      │
@@ -173,17 +173,17 @@ The Perfection Loop is a Finite State Machine with mandatory transitions:
 2. Load `protocol.config.yaml` to get project-specific commands
 3. Load `coding-standards/{language}.md` for naming conventions
 4. Review `dev/LEARNINGS.md` for known issues
-5. Create `dev/session-summaries/YYYY-MM-DD-HHMM.md` with:
+5. Review all FIDs in `dev/fids/` — flag any non-`Closed` as open items for the session
+6. Create `dev/session-summaries/YYYY-MM-DD-HHMM.md` with:
    - Initial state assessment
    - Planned work
    - Dependencies identified
 
 ### During Session
 
-6. Work through one task at a time
-7. Follow the Perfection Loop for each change
-8. Document findings in `dev/findings/` as you discover issues
-9. Create FIDs (Findings documents) when appropriate
+7. Work through one task at a time
+8. Follow the Perfection Loop for each change
+9. Document issues as FIDs in `dev/fids/`
 10. Update session summary with progress
 
 ### End of Session
@@ -197,12 +197,12 @@ The Perfection Loop is a Finite State Machine with mandatory transitions:
 
 ## FID Lifecycle
 
-FIDs (Findings documents) track discovered issues through resolution:
+FIDs (Feature Implementation Documents) track discovered issues through resolution:
 
-```
-Created → Analyzed → Fixed → Verified → Closed
-   │         │         │         │          │
-   └─────────┴─────────┴─────────┴──────────┘
+```text
+Created → Analyzed → Fixed → Verified → Closed → Archived
+   │         │         │         │          │         │
+   └─────────┴─────────┴─────────┴──────────┴─────────┘
         All stages require evidence
 ```
 
@@ -217,6 +217,15 @@ Created → Analyzed → Fixed → Verified → Closed
 ### FID Format
 
 See `templates/FID-TEMPLATE.md` for the standard format.
+
+### FID Auto-Archive
+
+When a FID status is updated to **Closed**, the agent MUST:
+
+1. Move the FID file from `dev/fids/` to `dev/fids/archive/`
+2. Append an entry to `CHANGELOG.md` with the FID ID, severity, description, and resolution summary
+3. Log the archival in the session summary
+4. Closed FIDs must not remain in the active `dev/fids/` directory
 
 ---
 
@@ -273,11 +282,15 @@ If you've read the same file 2+ times or made the same edit 2+ times:
 3. Move to next feature
 4. Come back later with fresh context
 
+> **See also:** Circuit Breaker Rule #4 (Oscillation Detection) for automated
+> detection of this pattern across iterations.
+
 ---
 
 ## Audit Checklist
 
-For each module or feature, verify (substitute commands from `protocol.config.yaml`):
+For each module or feature, verify during the AUDIT phase of the Perfection Loop
+(substitute commands from `protocol.config.yaml`):
 
 - [ ] Code compiles and runs (`commands.build`)
 - [ ] All tests pass (`commands.test`)
@@ -315,10 +328,12 @@ Document these in `dev/LEARNINGS.md` to improve future sessions.
 | Language standards | `coding-standards/{language}.md` |
 | FID template | `templates/FID-TEMPLATE.md` |
 | Session template | `templates/SESSION-SUMMARY.md` |
-| Findings | `dev/findings/` |
+| FIDs | `dev/fids/` |
+| FID archive | `dev/fids/archive/` |
 | Session summaries | `dev/session-summaries/` |
-| Plans | `dev/plans/` |
 | Lessons learned | `dev/LEARNINGS.md` |
+| Version | `VERSION` |
+| Changelog | `CHANGELOG.md` |
 
 ---
 
