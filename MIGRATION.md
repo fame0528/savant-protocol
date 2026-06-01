@@ -62,7 +62,7 @@ Edit `protocol.config.yaml` and set:
 
 ```yaml
 protocol:
-  version: "0.0.9"
+  version: "0.1.0"
   strict_mode: true
 
 project:
@@ -156,3 +156,39 @@ When the protocol gets a new version:
 3. Preserve your `protocol.config.yaml` (don't overwrite project-specific settings)
 4. Preserve your `dev/` directory (contains your session history)
 5. Update `VERSION` to match the new protocol version
+
+### Namespace Convention for Existing Projects
+
+If your project already has its own `CHANGELOG.md`, `README.md`, or
+`coding-standards/` directory, protocol files will collide with yours at
+the project root. Use a `protocol/` subdirectory to keep them clean:
+
+```text
+your-project/
+├── protocol/                    # All protocol files live here
+│   ├── ECHO.md
+│   ├── protocol.config.yaml
+│   ├── STARTER-PROMPT.md
+│   ├── MIGRATION.md
+│   ├── VERSION
+│   ├── CHANGELOG.md             # Protocol changelog (not yours)
+│   ├── LICENSE
+│   ├── .markdownlint.json
+│   ├── overview.jpg
+│   ├── templates/
+│   ├── coding-standards/
+│   └── dev/
+├── CHANGELOG.md                 # Your project's changelog
+├── README.md                    # Your project's readme
+├── coding-standards/            # Your project's standards (if any)
+└── [your existing project files]
+```
+
+When using this layout, update `protocol.config.yaml` paths to point
+to `protocol/dev/` instead of `dev/`. The starter prompt should reference
+`protocol/ECHO.md` and `protocol/protocol.config.yaml`.
+
+> **Recommendation:** Use the `protocol/` namespace if your project already
+> has a CHANGELOG.md, README.md, or coding-standards/ at the root. This
+> prevents file collisions and keeps protocol updates clean — you can
+> overwrite the entire `protocol/` directory without touching your project files.

@@ -16,6 +16,12 @@ boilerplate release to reflect independent versioning.
 
 ---
 
+## v0.1.0 — 2026-06-01
+
+Minor bump (10th patch). Protocol stable — zero findings across last 3 audits.
+
+- [LOW] MIGRATION.md: protocol/ namespace convention for downstream projects with existing CHANGELOG/README/coding-standards
+
 ## v0.0.9 — 2026-06-01
 
 - [LOW] rust.md: .expect() contradiction resolved — forbidden in library code, acceptable only in tests/examples/main.rs
