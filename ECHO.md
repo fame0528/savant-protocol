@@ -1,8 +1,8 @@
-# ECHO PROTOCOL v0.0.3 — Universal Agent Bootstrap
+# ECHO PROTOCOL v0.0.4 — Universal Agent Bootstrap
 
 > **This is the SINGLE bootstrap file for any AI agent session.**
 > Language-agnostic. Project-specific details live in `protocol.config.yaml`.
-> **Version:** 0.0.3 | **Status:** ACTIVE | **Non-Negotiable: YES**
+> **Version:** 0.0.4 | **Status:** ACTIVE | **Non-Negotiable: YES**
 
 ---
 
@@ -97,7 +97,7 @@ coding standard's `## Quality Overrides` section:
 | **11** | Follow discovered patterns EXACTLY | Inconsistency |
 | **12** | Never expose sensitive data in logs/errors | Security breach |
 | **13** | Utility-first, universal logic | Duplication is debugging debt |
-| **14** | All error paths handled | Every `Result` propagated with `?` or handled explicitly |
+| **14** | All error paths handled | Every fallible operation must have its error propagated or explicitly handled (see language-specific patterns) |
 | **15** | Build stays clean | Zero errors, zero warnings after every edit |
 
 #### Law 13: Utility-First, Universal Logic
@@ -163,7 +163,7 @@ The Perfection Loop is a Finite State Machine with mandatory transitions:
 |-------|----------------|---------|----------------|
 | **RED** | Start of loop | Identify ALL failures and issues | All issues cataloged |
 | **GREEN** | RED complete | Fix issues with MINIMAL changes | All fixes applied |
-| **AUDIT** | GREEN complete | Double-audit with honest assessment | Audit passes/fails |
+| **AUDIT** | GREEN complete | Double-audit: verify change with two independent methods (e.g. static analysis + runtime tests). Self-reporting is prohibited — evidence must come from tool output. | Audit passes/fails |
 | **SELF-CORRECT** | AUDIT failed | Address audit findings | Corrections applied |
 | **COMPLETE** | AUDIT passed | Document results | Loop ends |
 

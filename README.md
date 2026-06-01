@@ -3,7 +3,7 @@
 
 <img src="overview.jpg" alt="ECHO Protocol Overview" width="850" />
 
-# ECHO PROTOCOL v0.0.3
+# ECHO PROTOCOL v0.0.4
 
 **Universal Agent Bootstrap. Language-Agnostic. Zero-Cost.**
 
@@ -52,7 +52,7 @@ Your agent will boot, prove it read the rules, and begin working under full prot
 The ECHO Protocol is a universal agent bootstrap system that enforces structured
 engineering discipline on any AI agent, in any language, on any project:
 
-- **15 Laws** — 4 immutable process laws (read first, present before act, verify, call-graph reachability) + 11 extended code laws (no placeholders, no type safety shortcuts, search existing code, utility-first, all error paths handled, build stays clean)
+- **15 Laws** — 4 immutable process laws (read first, present before act, verify, call-graph reachability) + 11 extended code laws (no placeholders, no type safety shortcuts, search existing code, log intent, production documentation, update tracking, follow patterns, no sensitive data in logs, utility-first, all error paths handled, build stays clean)
 - **Five Questions** — Evaluation framework: works for ALL cases? Scales to 1000? Survives hostile attacker? Maintainable in 2 years? Sets industry standard?
 - **Perfection Loop FSM** — 5-state finite state machine (RED → GREEN → AUDIT → SELF-CORRECT → COMPLETE) with mandatory transitions and convergence detection
 - **Levenshtein Change Control** — 10% character-change cap per pass prevents oscillation and ensures stable convergence
@@ -191,7 +191,8 @@ savant-protocol/
 ├── MIGRATION.md                 # Retrofit guide for existing projects
 ├── VERSION                      # Protocol version
 ├── CHANGELOG.md                 # Auto-updated by agent on FID closure
-├── README.md                    # This file
+├── LICENSE                      # MIT License
+├── README.md                    # This file (landing page — see ECHO.md for spec)
 ├── .markdownlint.json           # Markdownlint configuration
 ├── overview.jpg                 # Protocol overview diagram
 ├── coding-standards/            # Language-specific naming and style
@@ -242,10 +243,12 @@ savant-protocol/
 | `perfection_loop.max_iterations` | `10` | Hard stop for Perfection Loop |
 | `perfection_loop.change_threshold` | `0.10` | Max 10% character change per pass |
 | `perfection_loop.convergence_threshold` | `0.02` | Convergence detection threshold |
+| `perfection_loop.convergence_passes` | `2` | Consecutive passes below threshold to trigger convergence |
 | `perfection_loop.oscillation_limit` | `3` | Same-issue reappearance limit |
 | `session.auto_summary` | `true` | Auto-generate session summaries |
 | `session.summary_interval` | `30` | Summary interval in minutes |
 | `session.max_session_hours` | `4` | Maximum session duration |
+| `session.autonomy_level` | `3` | 1=Guided, 2=Supervised, 3=Autonomous (default) |
 
 ---
 

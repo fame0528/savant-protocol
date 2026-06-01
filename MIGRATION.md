@@ -12,8 +12,10 @@ git clone https://github.com/fame0528/savant-protocol.git /tmp/echo-protocol
 cp -r /tmp/echo-protocol/ECHO.md .
 cp -r /tmp/echo-protocol/protocol.config.yaml .
 cp -r /tmp/echo-protocol/STARTER-PROMPT.md .
+cp -r /tmp/echo-protocol/MIGRATION.md .
 cp -r /tmp/echo-protocol/VERSION .
 cp -r /tmp/echo-protocol/CHANGELOG.md .
+cp -r /tmp/echo-protocol/LICENSE .
 cp -r /tmp/echo-protocol/.markdownlint.json .
 cp -r /tmp/echo-protocol/templates/ ./templates/
 cp -r /tmp/echo-protocol/coding-standards/ ./coding-standards/
@@ -54,7 +56,7 @@ Edit `protocol.config.yaml` and set:
 
 ```yaml
 protocol:
-  version: "0.0.3"
+  version: "0.0.4"
   strict_mode: true
 
 project:

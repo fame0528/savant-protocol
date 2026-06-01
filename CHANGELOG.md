@@ -16,24 +16,37 @@ boilerplate release to reflect independent versioning.
 
 ---
 
+## v0.0.4 — 2026-06-01
+
+- [MEDIUM] README tree: added MIGRATION.md and LICENSE
+- [MEDIUM] README Law summary: all 11 extended laws now listed
+- [MEDIUM] Law 14: language-agnostic wording (replaces Rust-specific Result/?)
+- [MEDIUM] C# starter prompt: interfaces confirmation added
+- [LOW] Double Audit defined in ECHO.md (two independent methods, no self-reporting)
+- [LOW] TS/Python prompts: max_function_lines confirmed (all 6 variants aligned)
+- [LOW] MIGRATION.md copy commands: include MIGRATION.md and LICENSE
+- [LOW] README config table: added autonomy_level and convergence_passes
+- [LOW] .gitkeep files in dev/fids/, dev/fids/archive/, dev/session-summaries/
+- [LOW] .gitignore: tracks .gitkeep in gitignored directories
+
 ## v0.0.3 — 2026-06-01
 
-### Fixed (HIGH)
-
-- README.md clarifies ECHO.md as the single source of truth (protocol spec vs landing page)
-- Go, Java, C# starter prompts added to STARTER-PROMPT.md
-- Law 3 vs Emergency Procedure contradiction resolved — emergency procedures are escape hatches requiring FID + documentation
-
-### Fixed (MEDIUM)
-
-- "Final Certification" mapped to COMPLETE state in termination criteria
-- `strict_mode: false` behavior documented (Core enforced, Extended advisory, circuit breakers still apply)
-- Quality override precedence: language override wins over config defaults
-- Law 6 and Anti-Patterns now include language-specific type safety shortcuts for all 6 languages
-- Circuit Breaker #2 (500-char sample) fully specified: random selection, exact match, revert on unintended changes
-- Savant vs ECHO naming relationship explained in README footer
-
-### Fixed (LOW)
+- [HIGH] README clarifies ECHO.md as single source of truth
+- [HIGH] Go/Java/C# starter prompts added
+- [HIGH] Law 3 vs Emergency Procedure contradiction resolved
+- [MEDIUM] Final Certification mapped to COMPLETE state
+- [MEDIUM] strict_mode: false behavior documented
+- [MEDIUM] Quality override precedence: language wins over config
+- [MEDIUM] Anti-Patterns: language-specific examples for all 6 languages
+- [MEDIUM] Circuit Breaker #2 (500-char sample) fully specified
+- [MEDIUM] Savant vs ECHO naming explained
+- [LOW] Version source of truth documented (VERSION file canonical)
+- [LOW] Version reset from Savant v4.0.0 acknowledged
+- [LOW] Law 8 log intent destination (session summary)
+- [LOW] Universal prompt aligned to 8 boot steps
+- [LOW] LEARNINGS date format fixed to YYYY-MM-DD-HHMM
+- [LOW] FID filename convention added
+- [LOW] Quickstart notes dev/ directories auto-created
 
 - Version source of truth documented in CHANGELOG header (`VERSION` file is canonical)
 - Version reset from Savant v4.0.0 acknowledged in CHANGELOG

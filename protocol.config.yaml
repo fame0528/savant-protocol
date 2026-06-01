@@ -11,7 +11,7 @@ project:
   version: "0.1.0"
 
 protocol:
-  version: "0.0.3"
+  version: "0.0.4"
   strict_mode: true  # true = all 15 laws active (default), false = core 4 laws only
 
 language: "CHANGE_ME"  # rust | typescript | python | go | java | csharp

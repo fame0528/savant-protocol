@@ -1,6 +1,7 @@
 # Agent runtime state — not source code
-dev/session-summaries/
-dev/fids/
+dev/session-summaries/*
+dev/fids/*
+!.gitkeep
 
 # Keep LEARNINGS.md tracked — cross-session knowledge
 !dev/LEARNINGS.md
