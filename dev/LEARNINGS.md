@@ -1,6 +1,6 @@
 # LEARNINGS
 
-## Session YYYY-MMDD-HHMM: [Session Name]
+## Session YYYY-MM-DD-HHMM: [Session Name]
 
 **Key Learnings:**
 

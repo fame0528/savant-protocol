@@ -3,9 +3,12 @@
 
 <img src="overview.jpg" alt="ECHO Protocol Overview" width="850" />
 
-# ECHO PROTOCOL v0.0.2
+# ECHO PROTOCOL v0.0.3
 
 **Universal Agent Bootstrap. Language-Agnostic. Zero-Cost.**
+
+> **This is the landing page.** For the protocol specification (the single source
+> of truth for all agent behavior), see [ECHO.md](ECHO.md).
 
 A structured quality gate framework for AI agent sessions. Drop into any project
 to enforce test-driven development, iterative refinement, honest verification,
@@ -37,6 +40,10 @@ oscillation and runaway loops. **Anti-patterns** explicitly forbidden. **Emergen
 ```
 
 Your agent will boot, prove it read the rules, and begin working under full protocol discipline.
+
+> **Note:** The `dev/fids/`, `dev/fids/archive/`, and `dev/session-summaries/`
+> directories are gitignored and created at runtime. The agent will create them
+> automatically on first session. If you need them manually: `mkdir -p dev/fids/archive dev/session-summaries`
 
 ---
 
@@ -311,6 +318,10 @@ See `templates/FID-TEMPLATE.md` for the standard format.
 
 _Engineered discipline for autonomous agents._
 
-**ECHO Protocol** &bull; **Savant** &bull; 2026
+**ECHO Protocol** is the specification. **Savant** is the project/organization
+that created and maintains it. The repo is named `savant-protocol` because
+Savant is the parent project; ECHO is the agent discipline protocol within it.
+
+**Savant** &bull; 2026
 
 </div>

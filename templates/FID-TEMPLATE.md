@@ -1,5 +1,6 @@
 # FID: [Short Description]
 
+**Filename:** `FID-YYYY-MMDD-NNN-[short-description].md`
 **ID:** FID-YYYY-MMDD-NNN
 **Severity:** critical | high | medium | low
 **Status:** created | analyzed | fixed | verified | closed

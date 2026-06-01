@@ -1,8 +1,8 @@
-# ECHO PROTOCOL v0.0.2 — Universal Agent Bootstrap
+# ECHO PROTOCOL v0.0.3 — Universal Agent Bootstrap
 
 > **This is the SINGLE bootstrap file for any AI agent session.**
 > Language-agnostic. Project-specific details live in `protocol.config.yaml`.
-> **Version:** 0.0.2 | **Status:** ACTIVE | **Non-Negotiable: YES**
+> **Version:** 0.0.3 | **Status:** ACTIVE | **Non-Negotiable: YES**
 
 ---
 
@@ -53,6 +53,26 @@ Laws 1-4 are the Immutable Process Laws governing workflow. Laws 5-15 are the Ex
 - **Extended laws** are enforced when `strict_mode: true`. Set to `false` for quick exploration or debugging sessions where full rigor is unnecessary.
 - The boot sequence always confirms Core laws. Extended laws are confirmed only when `strict_mode` is active.
 
+#### strict_mode: false Behavior
+
+When `strict_mode` is `false`:
+
+- Laws 1-4 (Core) remain fully enforced — no exceptions
+- Laws 5-15 (Extended) are advisory, not enforced
+- Anti-patterns remain flagged but do not block progress
+- Perfection Loop still runs but AUDIT phase is relaxed (no double-audit)
+- FID creation is optional (recommended but not required)
+- Circuit breaker rules still apply (prevents runaway loops regardless)
+
+#### Quality Override Precedence
+
+When a quality setting exists in both `protocol.config.yaml` and the language
+coding standard's `## Quality Overrides` section:
+
+1. **Language override wins** — coding-standards values take precedence
+2. **Config is the fallback** — used when no language override exists
+3. **Rationale** — language-specific conventions should reflect idiomatic patterns for that language
+
 ### Laws 1-4: The Immutable Process Laws
 
 | # | Law | Directive | Enforcement |
@@ -71,7 +91,7 @@ Laws 1-4 are the Immutable Process Laws governing workflow. Laws 5-15 are the Ex
 | **5** | No pseudo-code, TODOs, or placeholders | Technical debt compounds |
 | **6** | No type safety shortcuts — use language-appropriate safe patterns (see coding-standards) | Runtime errors in production |
 | **7** | Search for existing code BEFORE creating new | Duplication kills maintainability |
-| **8** | Log intent before coding | Untracked drift |
+| **8** | Log intent before coding | Document the intended change in the session summary before implementation |
 | **9** | Generate production-grade documentation | Unmaintainable code |
 | **10** | Update tracking after every feature | Lost progress |
 | **11** | Follow discovered patterns EXACTLY | Inconsistency |
@@ -150,7 +170,7 @@ The Perfection Loop is a Finite State Machine with mandatory transitions:
 ### Circuit Breaker Rules
 
 1. **Max Changes Per Pass** — 10% of total character count
-2. **Verification** — 500-char random sample comparison after each change
+2. **Verification** — After each change, select a 500-character random sample from the modified file(s). Compare before/after using exact character match. If the sample outside your intended change area was modified, revert and re-apply with narrower scope. This catches unintended side effects.
 3. **Convergence Detection** — Stop if change delta < 2% for 2 consecutive passes
 4. **Oscillation Detection** — If same issue reappears 3 times, escalate
 5. **Hard Stop** — 10 maximum iterations per loop
@@ -159,8 +179,8 @@ The Perfection Loop is a Finite State Machine with mandatory transitions:
 
 | Condition | Action |
 |-----------|--------|
-| Deep Audit yields ZERO actionable improvements | → Proceed to Final Certification |
-| User explicitly requests to ship | → Proceed to Final Certification |
+| Deep Audit yields ZERO actionable improvements | → Proceed to COMPLETE state (Final Certification) |
+| User explicitly requests to ship | → Proceed to COMPLETE state (Final Certification) |
 | 5 iterations reached without convergence | → Flag for review (possible architecture smell) |
 | Diminishing returns detected | → Recommend ship |
 
@@ -254,8 +274,18 @@ When a FID status is updated to **Closed**, the agent MUST:
 | "Good enough" | Good enough is never good enough | — |
 | Deferring approved work without presenting | Scope reduction is a silent decision | 2 |
 | Writing pseudo-code or placeholders | Every line must be production-ready | 5 |
-| `unwrap()` or `expect()` in non-test code | Use `?`, `match`, or explicit error types | 6 |
 | Swallowed errors | `let _ = foo()` only where failure is acceptable | 14 |
+
+### Language-Specific Type Safety Shortcuts (Law 6)
+
+| Language | Forbidden Pattern | Use Instead |
+|----------|------------------|-------------|
+| Rust | `unwrap()`, `expect()` in non-test code | `?` operator, `match`, explicit error types |
+| TypeScript | `any` type, `@ts-ignore` | `unknown` + type guards, proper typing |
+| Python | Bare `except:`, no type hints | Specific exceptions, type hints on public functions |
+| Go | Ignoring errors with `_` | Check all returned errors |
+| Java | Bare `catch (Exception e)`, null returns | Specific exceptions, `Optional<T>` |
+| C# | `async void`, `.Result`, `.Wait()` | `async Task`, `await`, `CancellationToken` |
 
 ---
 
@@ -285,12 +315,17 @@ The protocol requires verifiable claims, but this does not mean agents cannot re
 
 ## Emergency Procedures
 
+These procedures are escape hatches for stuck states. They do NOT override
+Law 3 (Verify Before Proceed) — you must exhaust all reasonable fix attempts
+before invoking an emergency procedure. Marking a feature `PENDING` requires
+documenting why you are stuck and creating a FID for follow-up.
+
 ### If Tests Won't Pass
 
 1. Run failing test with verbose output to see details
 2. Check if test is stale (references old API)
 3. Fix test or fix code (whichever is correct)
-4. If truly stuck, mark feature as `PENDING` and move on
+4. If truly stuck after all attempts, create a FID, mark feature as `PENDING`, and move on
 
 ### If Compilation Won't Fix
 

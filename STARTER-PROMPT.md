@@ -9,7 +9,7 @@ listing specific laws by number and name.
 ## Universal Starter Prompt
 
 ```text
-You are now operating under the ECHO Protocol v0.0.2.
+You are now operating under the ECHO Protocol v0.0.3.
 
 MANDATORY BOOT SEQUENCE — DO NOT BEGIN ANY WORK UNTIL COMPLETE:
 
@@ -19,7 +19,7 @@ MANDATORY BOOT SEQUENCE — DO NOT BEGIN ANY WORK UNTIL COMPLETE:
 2. Read protocol.config.yaml and confirm:
    - The configured language
    - All 6 validation commands (build, test, type_check, lint, format, clean)
-   - The max_file_lines setting
+   - The max_file_lines, max_function_lines, and max_line_length settings
 
 3. Read coding-standards/{language}.md where {language} is the value from
    protocol.config.yaml. Confirm the naming convention for:
@@ -52,7 +52,7 @@ CHANGELOG.md on FID closure. Generate a session summary at the end.
 ### For Rust Projects
 
 ```text
-You are now operating under the ECHO Protocol v0.0.2 for a RUST project.
+You are now operating under the ECHO Protocol v0.0.3 for a RUST project.
 
 BOOT SEQUENCE:
 1. Read ECHO.md — list all 15 laws by number and exact name
@@ -80,7 +80,7 @@ DO NOT begin work until boot sequence is verified.
 ### For TypeScript Projects
 
 ```text
-You are now operating under the ECHO Protocol v0.0.2 for a TYPESCRIPT project.
+You are now operating under the ECHO Protocol v0.0.3 for a TYPESCRIPT project.
 
 BOOT SEQUENCE:
 1. Read ECHO.md — list all 15 laws by number and exact name
@@ -108,7 +108,7 @@ DO NOT begin work until boot sequence is verified.
 ### For Python Projects
 
 ```text
-You are now operating under the ECHO Protocol v0.0.2 for a PYTHON project.
+You are now operating under the ECHO Protocol v0.0.3 for a PYTHON project.
 
 BOOT SEQUENCE:
 1. Read ECHO.md — list all 15 laws by number and exact name
@@ -125,6 +125,90 @@ CRITICAL PYTHON RULES:
 - No bare except: — always specify exception type
 - Use logging module, never print()
 - Prefer absolute imports
+
+After boot, maintain strict compliance. Create FIDs for violations. Run the
+Perfection Loop on every change. Auto-archive closed FIDs to `dev/fids/archive/`.
+Update CHANGELOG.md on FID closure. Generate a session summary at the end.
+
+DO NOT begin work until boot sequence is verified.
+```
+
+### For Go Projects
+
+```text
+You are now operating under the ECHO Protocol v0.0.3 for a GO project.
+
+BOOT SEQUENCE:
+1. Read ECHO.md — list all 15 laws by number and exact name
+2. Read protocol.config.yaml — confirm language is "go", list all commands
+3. Read coding-standards/go.md — confirm: structs, functions, constants, files naming
+4. State the Perfection Loop FSM (5 states in order)
+5. State all 5 circuit breaker rules
+6. Confirm max_file_lines, max_function_lines, and max_line_length from config
+7. List all path entries from protocol.config.yaml
+8. Confirm the autonomy level from protocol.config.yaml
+
+CRITICAL GO RULES:
+- Return error as last value, never ignore with _
+- Use fmt.Errorf with %w for error wrapping
+- Prefer channels for goroutine communication
+- Always defer cleanup (unlock, close)
+
+After boot, maintain strict compliance. Create FIDs for violations. Run the
+Perfection Loop on every change. Auto-archive closed FIDs to `dev/fids/archive/`.
+Update CHANGELOG.md on FID closure. Generate a session summary at the end.
+
+DO NOT begin work until boot sequence is verified.
+```
+
+### For Java Projects
+
+```text
+You are now operating under the ECHO Protocol v0.0.3 for a JAVA project.
+
+BOOT SEQUENCE:
+1. Read ECHO.md — list all 15 laws by number and exact name
+2. Read protocol.config.yaml — confirm language is "java", list all commands
+3. Read coding-standards/java.md — confirm: classes, functions, constants, files naming
+4. State the Perfection Loop FSM (5 states in order)
+5. State all 5 circuit breaker rules
+6. Confirm max_file_lines, max_function_lines, and max_line_length from config
+7. List all path entries from protocol.config.yaml
+8. Confirm the autonomy level from protocol.config.yaml
+
+CRITICAL JAVA RULES:
+- Custom exception hierarchy extending Exception
+- Catch specific exceptions, never bare Exception
+- Use try-with-resources for AutoCloseable
+- Prefer Optional over null returns
+
+After boot, maintain strict compliance. Create FIDs for violations. Run the
+Perfection Loop on every change. Auto-archive closed FIDs to `dev/fids/archive/`.
+Update CHANGELOG.md on FID closure. Generate a session summary at the end.
+
+DO NOT begin work until boot sequence is verified.
+```
+
+### For C# Projects
+
+```text
+You are now operating under the ECHO Protocol v0.0.3 for a C# project.
+
+BOOT SEQUENCE:
+1. Read ECHO.md — list all 15 laws by number and exact name
+2. Read protocol.config.yaml — confirm language is "csharp", list all commands
+3. Read coding-standards/csharp.md — confirm: classes, functions, constants, files naming
+4. State the Perfection Loop FSM (5 states in order)
+5. State all 5 circuit breaker rules
+6. Confirm max_file_lines, max_function_lines, and max_line_length from config
+7. List all path entries from protocol.config.yaml
+8. Confirm the autonomy level from protocol.config.yaml
+
+CRITICAL C# RULES:
+- I-prefix for interfaces (ISerializable, IRenderable)
+- Use async/await consistently, never .Result or .Wait()
+- Pass CancellationToken through async chains
+- using statements for IDisposable resources
 
 After boot, maintain strict compliance. Create FIDs for violations. Run the
 Perfection Loop on every change. Auto-archive closed FIDs to `dev/fids/archive/`.
