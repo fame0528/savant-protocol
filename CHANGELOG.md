@@ -16,6 +16,10 @@ boilerplate release to reflect independent versioning.
 
 ---
 
+## v0.0.8 — 2026-06-01
+
+- [LOW] README anti-pattern count: 11→10 (matches ECHO.md table)
+
 ## v0.0.7 — 2026-06-01
 
 - [LOW] .gitignore: dev/fids/.gitkeep negation fixed (both repo and MIGRATION template)

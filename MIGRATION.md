@@ -62,7 +62,7 @@ Edit `protocol.config.yaml` and set:
 
 ```yaml
 protocol:
-  version: "0.0.7"
+  version: "0.0.8"
   strict_mode: true
 
 project:

@@ -3,7 +3,7 @@
 
 <img src="overview.jpg" alt="ECHO Protocol Overview" width="850" />
 
-# ECHO PROTOCOL v0.0.7
+# ECHO PROTOCOL v0.0.8
 
 **Universal Agent Bootstrap. Language-Agnostic. Zero-Cost.**
 
@@ -63,7 +63,7 @@ engineering discipline on any AI agent, in any language, on any project:
 - **FID Lifecycle** — Feature Implementation Documents track bugs, architectural issues, and improvements through a structured lifecycle: Created → Analyzed → Fixed → Verified → Closed → Archived
 - **Session Management** — Structured session lifecycle with start/during/end phases, automatic summaries, and cross-session learning via `LEARNINGS.md`
 - **Honest Assessment** — All claims must be verifiable through tool output. No self-reporting. No assumptions. Proof or it didn't happen
-- **Anti-Patterns** — 11 explicitly forbidden behaviors (simplest approach, quick fix, speed over quality, good enough, swallowed errors, etc.)
+- **Anti-Patterns** — 10 explicitly forbidden behaviors (simplest approach, quick fix, speed over quality, good enough, swallowed errors, etc.)
 - **Emergency Procedures** — Recovery protocols for stuck states: test failures, compilation failures, looping detection
 - **Autonomy Levels** — 3 levels: Guided (user present), Supervised (user available), Autonomous (default, push at will)
 - **Template Library** — Pre-built templates for FIDs and session summaries ensure consistent documentation across all agent sessions
