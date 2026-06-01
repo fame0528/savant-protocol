@@ -34,8 +34,11 @@ Add these lines to your `.gitignore`:
 
 ```text
 # ECHO Protocol runtime state
-dev/session-summaries/
-dev/fids/
+dev/session-summaries/*
+dev/fids/*
+!dev/fids/archive/
+!dev/fids/archive/.gitkeep
+!.gitkeep
 
 # Keep LEARNINGS.md tracked
 !dev/LEARNINGS.md
@@ -57,7 +60,7 @@ Edit `protocol.config.yaml` and set:
 
 ```yaml
 protocol:
-  version: "0.0.5"
+  version: "0.0.6"
   strict_mode: true
 
 project:
@@ -86,6 +89,7 @@ your-project/
 ├── protocol.config.yaml       # Configured with your language + commands
 ├── STARTER-PROMPT.md
 ├── MIGRATION.md               # This file
+├── README.md                  # Landing page
 ├── VERSION
 ├── CHANGELOG.md
 ├── LICENSE

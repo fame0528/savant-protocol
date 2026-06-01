@@ -9,7 +9,7 @@ listing specific laws by number and name.
 ## Universal Starter Prompt
 
 ```text
-You are now operating under the ECHO Protocol v0.0.5.
+You are now operating under the ECHO Protocol v0.0.6.
 
 MANDATORY BOOT SEQUENCE — DO NOT BEGIN ANY WORK UNTIL COMPLETE:
 
@@ -19,7 +19,6 @@ MANDATORY BOOT SEQUENCE — DO NOT BEGIN ANY WORK UNTIL COMPLETE:
 2. Read protocol.config.yaml and confirm:
    - The configured language
    - All 6 validation commands (build, test, type_check, lint, format, clean)
-   - The max_file_lines, max_function_lines, and max_line_length settings
 
 3. Read coding-standards/{language}.md where {language} is the value from
    protocol.config.yaml. Confirm the naming convention for:
@@ -32,12 +31,14 @@ MANDATORY BOOT SEQUENCE — DO NOT BEGIN ANY WORK UNTIL COMPLETE:
 
 5. State the circuit breaker rules (all 5).
 
-6. List all path entries from protocol.config.yaml.
+6. Confirm max_file_lines, max_function_lines, and max_line_length from config.
 
-7. Confirm the autonomy level from protocol.config.yaml.
+7. List all path entries from protocol.config.yaml.
+
+8. Confirm the autonomy level from protocol.config.yaml.
 
 DO NOT begin any coding, analysis, or task work until you have completed
-steps 1-7 and I have confirmed your boot sequence is correct.
+steps 1-8 and I have confirmed your boot sequence is correct.
 
 After confirmation, maintain strict compliance with all laws throughout
 our session. Create FIDs for any violations. Run the Perfection Loop on
@@ -52,7 +53,7 @@ CHANGELOG.md on FID closure. Generate a session summary at the end.
 ### For Rust Projects
 
 ```text
-You are now operating under the ECHO Protocol v0.0.5 for a RUST project.
+You are now operating under the ECHO Protocol v0.0.6 for a RUST project.
 
 BOOT SEQUENCE:
 1. Read ECHO.md — list all 15 laws by number and exact name
@@ -80,7 +81,7 @@ DO NOT begin work until boot sequence is verified.
 ### For TypeScript Projects
 
 ```text
-You are now operating under the ECHO Protocol v0.0.5 for a TYPESCRIPT project.
+You are now operating under the ECHO Protocol v0.0.6 for a TYPESCRIPT project.
 
 BOOT SEQUENCE:
 1. Read ECHO.md — list all 15 laws by number and exact name
@@ -108,7 +109,7 @@ DO NOT begin work until boot sequence is verified.
 ### For Python Projects
 
 ```text
-You are now operating under the ECHO Protocol v0.0.5 for a PYTHON project.
+You are now operating under the ECHO Protocol v0.0.6 for a PYTHON project.
 
 BOOT SEQUENCE:
 1. Read ECHO.md — list all 15 laws by number and exact name
@@ -136,7 +137,7 @@ DO NOT begin work until boot sequence is verified.
 ### For Go Projects
 
 ```text
-You are now operating under the ECHO Protocol v0.0.5 for a GO project.
+You are now operating under the ECHO Protocol v0.0.6 for a GO project.
 
 BOOT SEQUENCE:
 1. Read ECHO.md — list all 15 laws by number and exact name
@@ -164,7 +165,7 @@ DO NOT begin work until boot sequence is verified.
 ### For Java Projects
 
 ```text
-You are now operating under the ECHO Protocol v0.0.5 for a JAVA project.
+You are now operating under the ECHO Protocol v0.0.6 for a JAVA project.
 
 BOOT SEQUENCE:
 1. Read ECHO.md — list all 15 laws by number and exact name
@@ -192,7 +193,7 @@ DO NOT begin work until boot sequence is verified.
 ### For C# Projects
 
 ```text
-You are now operating under the ECHO Protocol v0.0.5 for a C# project.
+You are now operating under the ECHO Protocol v0.0.6 for a C# project.
 
 BOOT SEQUENCE:
 1. Read ECHO.md — list all 15 laws by number and exact name

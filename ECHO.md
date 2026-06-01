@@ -1,8 +1,8 @@
-# ECHO PROTOCOL v0.0.5 — Universal Agent Bootstrap
+# ECHO PROTOCOL v0.0.6 — Universal Agent Bootstrap
 
 > **This is the SINGLE bootstrap file for any AI agent session.**
 > Language-agnostic. Project-specific details live in `protocol.config.yaml`.
-> **Version:** 0.0.5 | **Status:** ACTIVE | **Non-Negotiable: YES**
+> **Version:** 0.0.6 | **Status:** ACTIVE | **Non-Negotiable: YES**
 
 ---
 
@@ -275,7 +275,7 @@ When a FID status is updated to **Closed**, the agent MUST:
 | "Good enough" | Good enough is never good enough | — |
 | Deferring approved work without presenting | Scope reduction is a silent decision | 2 |
 | Writing pseudo-code or placeholders | Every line must be production-ready | 5 |
-| Swallowed errors | `let _ = foo()` only where failure is acceptable | 14 |
+| Swallowed errors | Silently discarding errors where failure is not acceptable (see language-specific table below) | 14 |
 
 ### Language-Specific Type Safety Shortcuts (Law 6)
 

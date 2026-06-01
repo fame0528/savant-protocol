@@ -16,6 +16,14 @@ boilerplate release to reflect independent versioning.
 
 ---
 
+## v0.0.6 — 2026-06-01
+
+- [LOW] MIGRATION.md verify tree: README.md listed
+- [LOW] MIGRATION.md .gitignore template: uses `/*` pattern + archive/.gitkeep negation
+- [LOW] Universal starter prompt: aligned to 8 steps (matches all language variants)
+- [LOW] README Law 14: language-agnostic wording (matches ECHO.md)
+- [LOW] ECHO.md anti-patterns: Law 14 example references language-specific table
+
 ## v0.0.5 — 2026-06-01
 
 - [MEDIUM] README Law 6: language-agnostic wording (matches ECHO.md spec)

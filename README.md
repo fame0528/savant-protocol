@@ -3,7 +3,7 @@
 
 <img src="overview.jpg" alt="ECHO Protocol Overview" width="850" />
 
-# ECHO PROTOCOL v0.0.5
+# ECHO PROTOCOL v0.0.6
 
 **Universal Agent Bootstrap. Language-Agnostic. Zero-Cost.**
 
@@ -93,7 +93,7 @@ engineering discipline on any AI agent, in any language, on any project:
 | 11 | **Follow discovered patterns exactly** | Consistency over cleverness |
 | 12 | **No sensitive data in logs** | Never expose keys, tokens, passwords, or PII |
 | 13 | **Utility-first, universal logic** | One function, one truth. Combine overlap. |
-| 14 | **All error paths handled** | Every `Result` propagated or handled explicitly |
+| 14 | **All error paths handled** | Every fallible operation must have its error propagated or explicitly handled |
 | 15 | **Build stays clean** | Zero errors, zero warnings after every edit |
 
 ---
