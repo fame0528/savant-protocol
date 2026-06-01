@@ -1,5 +1,6 @@
 # Python Coding Standards
-# Load this when protocol.config.yaml has language: "python"
+
+<!-- Load this when protocol.config.yaml has language: "python" -->
 
 ## Naming Conventions
 
@@ -19,6 +20,7 @@
 ## Patterns
 
 ### Type Hints
+
 - Use type hints on all public functions
 - Use `from __future__ import annotations` for forward refs
 - Prefer `list[int]` over `List[int]` (3.9+)
@@ -26,12 +28,14 @@
 - Use Protocol for structural typing
 
 ### Error Handling
+
 - Define custom exception hierarchy
 - Use specific exceptions, never bare `except:`
 - Use context managers for resource cleanup
 - Log exceptions with traceback at catch points
 
 ### Imports
+
 - Group: stdlib → third-party → local
 - One blank line between groups
 - Prefer absolute imports

@@ -242,6 +242,7 @@ Created → Analyzed → Fixed → Verified → Closed → Archived
 ```
 
 When to create a FID:
+
 - Bug discovered during implementation
 - Architectural issue identified
 - Performance bottleneck found

@@ -14,6 +14,7 @@ resolution summary.
 Initial boilerplate release.
 
 ### Added
+
 - ECHO Protocol v0.0.1 — universal agent bootstrap (15 Laws, Five Questions, Perfection Loop FSM)
 - Language-agnostic configuration via `protocol.config.yaml`
 - Coding standards for Rust, TypeScript, and Python

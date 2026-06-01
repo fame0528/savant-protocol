@@ -1,5 +1,6 @@
 # Rust Coding Standards
-# Load this when protocol.config.yaml has language: "rust"
+
+<!-- Load this when protocol.config.yaml has language: "rust" -->
 
 ## Naming Conventions
 
@@ -21,18 +22,21 @@
 ## Patterns
 
 ### Error Handling
+
 - Use `Result<T, E>` for all fallible operations
 - Never use `unwrap()` in library code — use `?` operator or `.expect("reason")`
 - Define project-specific error types using `thiserror`
 - Use `anyhow` for application-level error propagation
 
 ### Ownership
+
 - Prefer borrowing (`&T`) over cloning
 - Use `Arc<Mutex<T>>` for shared mutable state
 - Use `Rc<T>` for single-threaded shared ownership
 - Document lifetime elision decisions in complex cases
 
 ### Imports
+
 - Group: std → external crates → local modules
 - One blank line between groups
 - Prefer explicit imports over glob (`use module::*`)
