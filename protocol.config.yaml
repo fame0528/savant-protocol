@@ -8,10 +8,10 @@
 project:
   name: "my-project"
   description: "Brief project description"
-  version: "0.1.0"
+  version: "0.1.1"
 
 protocol:
-  version: "0.1.0"
+  version: "0.1.1"
   strict_mode: true  # true = all 15 laws active (default), false = core 4 laws only
 
 language: "CHANGE_ME"  # rust | typescript | python | go | java | csharp
