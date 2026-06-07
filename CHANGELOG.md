@@ -16,6 +16,13 @@ boilerplate release to reflect independent versioning.
 
 ---
 
+## v0.1.1 — 2026-06-07
+
+Minor bump. Added release workflow standard.
+
+- Added `coding-standards/release-workflow.md` — mandatory release cycle (CHANGELOG + README + release on every push), CHANGELOG format, README maintenance checklist, AGENTS.md conventions, version bumping rules
+- Source: real-world lessons from Savant Trading v0.10.3 release cycle
+
 ## v0.1.0 — 2026-06-01
 
 Minor bump (10th patch). Protocol stable — zero findings across last 3 audits.
