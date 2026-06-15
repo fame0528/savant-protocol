@@ -3,7 +3,7 @@
 
 <img src="overview.jpg" alt="ECHO Protocol Overview" width="850" />
 
-# ECHO PROTOCOL v0.1.0
+# ECHO PROTOCOL v0.1.2
 
 **Universal Agent Bootstrap. Language-Agnostic. Zero-Cost.**
 
@@ -26,6 +26,7 @@ oscillation and runaway loops. **Anti-patterns** explicitly forbidden. **Emergen
 [![Go](https://img.shields.io/badge/Go-Supported-%23000000?style=flat-square&logo=go&logoColor=%2300fbff)](coding-standards/go.md)
 [![Java](https://img.shields.io/badge/Java-Supported-%23000000?style=flat-square&logo=openjdk&logoColor=%2300fbff)](coding-standards/java.md)
 [![C#](https://img.shields.io/badge/C%23-Supported-%23000000?style=flat-square&logo=csharp&logoColor=%2300fbff)](coding-standards/csharp.md)
+[![x402](https://img.shields.io/badge/x402-Payments-%23000000?style=flat-square&logo=ethereum&logoColor=%2300fbff)](coding-standards/x402.md)
 
 </div>
 

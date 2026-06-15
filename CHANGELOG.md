@@ -16,6 +16,15 @@ boilerplate release to reflect independent versioning.
 
 ---
 
+## v0.1.2 — 2026-06-15
+
+Minor bump. Agent distribution tooling + x402 payments standard.
+
+- Added `scripts/sync-agents.py` — push the protocol to multiple agent homes (NOVA, Mya, savant-trading) in one command. Supports dry-run, single-target, custom `sync.yaml`, and project-tail stripping for general-purpose agents
+- Added `coding-standards/x402.md` — payment standard for ECHO-compliant agents. Covers when to use HTTP 402 payments, security rules (per-call + daily caps, no-key-in-code, receipt verification), per-agent default budgets, and Python/TypeScript reference implementations
+- Standardized agent distribution topology: `savant-protocol/` is the single source of truth, savant-trading imports with a project-specific tail, NOVA + Mya get the universal core only (no project tail, full multi-language coding-standards since they audit Rust primarily but work across languages)
+- Source: real-world rollout to NOVA (Hermes agent at `~/.hermes/`) and Mya (OpenClaw agent at `~/.openclaw/`), June 2026
+
 ## v0.1.1 — 2026-06-07
 
 Minor bump. Added release workflow standard.
