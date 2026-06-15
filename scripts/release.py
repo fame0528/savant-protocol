@@ -35,6 +35,12 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
+# Force UTF-8 stdout/stderr on Windows so box-drawing chars don't crash
+# when run from cmd.exe (default cp1252).
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 PROTOCOL_ROOT = Path(__file__).resolve().parent.parent
 REPO_SLUG = "fame0528/savant-protocol"
 API_BASE = "https://api.github.com"
