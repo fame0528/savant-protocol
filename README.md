@@ -3,7 +3,7 @@
 
 <img src="overview.jpg" alt="ECHO Protocol Overview" width="850" />
 
-# ECHO PROTOCOL v0.1.2
+# ECHO PROTOCOL v0.1.3
 
 **Universal Agent Bootstrap. Language-Agnostic. Zero-Cost.**
 

@@ -16,6 +16,15 @@ boilerplate release to reflect independent versioning.
 
 ---
 
+## v0.1.3 — 2026-06-15
+
+Patch bump. Backport FID-151 amendment to canonical ECHO.md so the protocol is the actual source of truth for downstream agents.
+
+- ECHO.md: AUDIT state expanded with FID-151 grep requirement (per `pub fn` or new config field, must `grep -rn <symbol>` and paste output in Perfection Loop section)
+- ECHO.md: added Cross-Agent Claim Rule section (attribution is not a source; cite the file path, not the agent name)
+- Why: savant-trading's ECHO.md had these via FID-151, but the canonical `savant-protocol/ECHO.md` did not — making the protocol a partial source of truth. Now canonical
+- Effect: NOVA + Mya (and any future agent) sync from savant-protocol and get the full amendment
+
 ## v0.1.2 — 2026-06-15
 
 Minor bump. Agent distribution tooling + x402 payments standard.
